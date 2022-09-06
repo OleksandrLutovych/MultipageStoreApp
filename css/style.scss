@@ -7,18 +7,6 @@ $font-hover: #173e59;
     scrollbar-color: transparent transparent;
     scrollbar-width: 0px;
 }
-*::-webkit-scrollbar {
-
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background: transparent;
-    border: none;
-  }
 
 body, p, a, h1, h2, h3 {
     margin: 0;
@@ -32,7 +20,6 @@ body, p, a, h1, h2, h3 {
 html {
     font-size: 16px;
 }
-
 .header {
     background:  linear-gradient( #4a99d333 -17.33%, rgba(74, 153, 211, 0) 75.91%), #FFFFFF ;
     box-shadow: 0px 4px 16px rgba(75, 0, 129, 0.1);
@@ -98,7 +85,7 @@ html {
     padding-top: 45px;
         .menu-element {
             margin-left: 2.7em;
-            font-weight: 500;
+            font-weight: 400;
             font-size: 18px;
             text-decoration: none;
             color: #0F001A;
@@ -115,27 +102,28 @@ html {
         flex-direction: row;
         padding-bottom: 78px;
         &-info {
-            width: 70%;
+            width: 60%;
             margin-right: 32px;
         } 
         &-image {
-            width: 30%;
+            width: 40%;
             position: relative;
             margin-bottom: 77px;
+            margin-right: 20px ;
             animation-name: Mockup;
             animation-duration: 1s;
             animation-iteration-count: 1;
             .mockup-small {
                 z-index: 1;
                 position: relative;
-                left: 0;
+                right: -100px;
                 bottom: 0;
                 transform: translateY(35px);
             }
             .mockup-big {
                 position: absolute;
-                right: -50px;
-                transform: translateY(-37px);
+                right: 0;
+                transform: translateY(-38px);
             }
             
         } 
@@ -223,13 +211,13 @@ html {
     }
 &__title {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 30px;
     margin-bottom: 16px;
 }
 &__text {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 26px;
     margin-bottom: 62px;
     opacity: 0.6;
@@ -241,7 +229,7 @@ html {
         p {
         color: $font-blue;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.9rem;
         line-height: 30px;
         margin-right: 19px;
         }
@@ -294,7 +282,7 @@ html {
     }
     .element {
         text-align: center;
-        font-size: 16px;
+        font-size: 1rem;
         width: 14em;
         &__img {
             margin-bottom: 1.8em;
@@ -339,6 +327,15 @@ html {
     width: 40%;
     top: 300px;
 }
+.feedback::after {
+    content: " ";
+    position: absolute;
+    background-image: url("../image/dots-decoration.png");
+    top: 420px;
+    right: 0;
+    width: 154px;
+    height: 154px;
+}
 .section__wrapper {
     h3 {
         padding-top: 140px;
@@ -352,6 +349,7 @@ html {
 .carousel {
     position: relative;
     height: 100%;
+    margin-bottom: 215px;
     &-box {
         display: flex;
         overflow-x: hidden;
@@ -365,6 +363,7 @@ html {
     }
     .client-feedback {
         width: 50%;
+        height: 100%;
         margin-top: 212px;
         .feedback-text {
             height: 40%;
@@ -405,7 +404,7 @@ html {
 } 
 .left, .right, .carousel-box::before, .carousel-box::after {
     position: absolute;
-    bottom: 5%;
+    bottom: 1%;
     width: 20px;
     height: 20px;
     border: solid black;
@@ -414,15 +413,15 @@ html {
 }
 .carousel-box::before, .carousel-box::after {
     content: " ";
-    background: none;
     z-index: 1;
     pointer-events: none;
 }
 
+
 // Download to enjoy section 
 .download-to-more {
     display: flex;
-    padding-bottom: 320px;
+    padding-bottom: 150px;
     &__mockUp {
         position: relative;
         width: 50%;
@@ -430,21 +429,19 @@ html {
         animation-duration: 1s;
         animation-iteration-count: 1;
         img:nth-child(1) {
-           position: absolute;
            top: 0;
-           left: 12%;
+           left: 0;
         }
         img:nth-child(2){
             position: absolute;
-            top: -22%;
-            left: 32%;
-            // transform: translateX(220px);
+            top: -57px;
+            left: 138px;
             z-index: 2;
         }
         img:nth-child(3) {
             position: absolute;
             top: 0;
-            right: 12%;
+            left: 340px;
         }
     }
     @keyframes phones {
@@ -461,13 +458,13 @@ html {
         &_title{
             margin-top: 60px;
             font-weight: 700;
-            font-size: 25px;
+            font-size: 1.56rem;
             text-align: center;
         }
         &_text {
             margin-top: 16px;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 24px;
             opacity: 0.5;
             text-align: center;
@@ -511,7 +508,7 @@ html {
         margin-right: 60px;
         .box-element-title {
             font-weight: 500; 
-            font-size: 18px;
+            font-size: 1.12rem;
             color: #FFFFFF;
             text-decoration: underline;
             margin-bottom: 34px;
@@ -521,7 +518,7 @@ html {
         }
         .box-element {
             font-weight: 300;
-            font-size: 14px;
+            font-size: 0.87rem;
             color: #FFFFFF;
             margin-bottom: 18px; 
         } 
@@ -532,7 +529,7 @@ html {
     .subscribe{
         display: flex;
         flex-wrap: wrap;
-        height: 40%;
+        align-content: flex-start;
         font-size: 10px;
         label {
             font-weight: 300;
@@ -542,17 +539,21 @@ html {
             margin-bottom: 20px;
         }
         input {
-            width: 60%;
+            width: 70%;
+            height: 50px;
             font-weight: 400;
             font-size: 1.4em;
             padding: 1.3em 0.7em;
             border: none;
             border-radius: 3px;
+            margin: 2px;
         }
         input:focus {
             outline: none;
         }
         a{
+            width: 116px;
+            height: 50px;
             background-color: #FFFFFF;
             font-weight: 700;
             font-size: 1.6em;
@@ -562,6 +563,7 @@ html {
             padding: 1em;
             border-radius: 3px;
             transition: .2s;
+            margin: 2px;
         }
         a:hover {
             background-color: $font-hover;
@@ -596,22 +598,18 @@ html {
 // MOBILE AND PAD VERSION 
 
 @media (max-width:880px) {
-    .main-logo {
-        font-size: 25px;
+    html {
+        font-size: 11px;
     }
-    .header__nav {
-        .menu-element {
-            font-size: 10px;
-        }
-    }
+// header 
     .header__content {
         padding-top:0 ;
         &-info {
-            width: 70%;
+            width: 60%;
         }
         &-image {
-            margin: 0;
-            width: 30%;
+            margin-right: 5px;
+            width: 40%;
             .mockup-small{
                 left: -70px;
                 -webkit-transform: scale(0.75);
@@ -619,7 +617,7 @@ html {
             } 
             .mockup-big{
                 bottom: -9px;
-                left: -77px;
+                left: 20px;
                 -webkit-transform: scale(0.75);
                 transform: scale(0.75);
             }
@@ -638,22 +636,87 @@ html {
             
         }
     }
-   
-} 
-@media (max-width:450px) {
+// main content 
+.main-content{
+    &__decoration-blue, &__decoration-orange {
+        transform: scale(0.7);
+    }
+    h2 {
+        font-size: 25px;
+    }
+}
+// feedback section 
+    .feedback__decoration-blue, .feedback__decoration-orange {
+        transform: scale(0.75);
+    }
+    .feedback::before {
+        height: 325px;
+    }
+    .feedback::after {
+        width: 108px;
+        height: 108px;
+    }
+    .carousel {
+        margin-bottom: 50px;
+    }
+    .client-photo {
+        transform: scale(0.7);
+    }
+    // download to more section 
+    .download-to-more {
+        &__mockUp {
+            img:nth-child(1) {
+               transform: scale(0.7);
+               top: 0;
+               left: 0;
+            }
+            img:nth-child(2){
+                transform: scale(0.7);
+                left: 90px;
+            }
+            img:nth-child(3) {
+                transform: scale(0.7);
+                left: 240px;
+            }
+        }
+    } 
+// footer 
+    .footer__content {
+        .logo p{
+            margin-right: 100px;
+        }
+}
+    .subscribe{
+
+    }   
+}
+@media (max-width:460px) {
+    .main-logo {
+        font-size: 25px;
+    }
+    .header__nav {
+        margin-bottom: 0px;
+        .menu-element {
+            display: none;
+        }
+    }
     .header__content {
+        padding-bottom: 0;
         &-info {
             width: 70%;
         }
         &-image {
+            margin-bottom: 0;
             .mockup-small{
-                -webkit-transform: scale(0.6);
-                transform: scale(0.6);
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
                 left: -80px;
-                bottom: 55px;
+                bottom: 0;
                 }
             .mockup-big {
-                display: none;
+                -webkit-transform: scale(0.5);
+                transform: scale(0.5);
+                left: -60px;
             }
         }
         &-title {
