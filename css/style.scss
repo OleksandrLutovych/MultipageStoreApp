@@ -4,7 +4,21 @@ $font-hover: #173e59;
 ::after,
 ::before {
     box-sizing: border-box;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: 0px;
 }
+*::-webkit-scrollbar {
+
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+  }
 
 body, p, a, h1, h2, h3 {
     margin: 0;
@@ -43,9 +57,10 @@ html {
         background-color: $font-blue;
         width: 18em;
         height: 6em;
-        padding: 1.4em 2.2em;
+        padding: 1.4em;
         border-radius: .5em;
         margin-right: 2em;
+        margin-bottom: 10px;
         transition: .2s;
 }
 .download-button:hover {
@@ -78,10 +93,11 @@ html {
 .header__nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 71px;
     padding-top: 45px;
         .menu-element {
-            margin-left: 50px;
+            margin-left: 2.7em;
             font-weight: 500;
             font-size: 18px;
             text-decoration: none;
@@ -140,16 +156,15 @@ html {
     &-title {
         font-weight: 500;
         font-size: 50px;
-        line-height: 70px;
+        line-height: 1.4em;
         letter-spacing: 0.02em;
         text-align: left;
-        margin-top: 75px;
+        margin-top: 1.5em;
     }
     &-text {
         font-weight: 400;
-        font-weight: 400;
         font-size: 20px;
-        line-height: 36px;
+        line-height: 1.8em;
         margin: 14px 0 60px 0;
         text-align: left;
     }
@@ -303,7 +318,7 @@ html {
 
 
 // What our client say + Download to more 
-.client-feedback{
+.feedback{
     position: relative;
     &__decoration-blue {   
         position: absolute;
@@ -316,6 +331,14 @@ html {
         right: 0;
     }
 }
+.feedback::before {
+    position: absolute;
+    content: " ";
+    background: rgba(74, 153, 211, 0.1);
+    height: 400px;
+    width: 40%;
+    top: 300px;
+}
 .section__wrapper {
     h3 {
         padding-top: 140px;
@@ -327,29 +350,18 @@ html {
 
 // Carousel ===
 .carousel {
-    margin-bottom: 150px;
-    display: flex;
-    .client-box {   
+    position: relative;
+    height: 100%;
+    &-box {
+        display: flex;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+   
+    .client-box {  
+        position: relative; 
         width: 50%;
-    }
-    .client-box::before {
-        position: absolute;
-        content: " ";
-        background: rgba(74, 153, 211, 0.1);
-        border-radius: 0px 6px 6px 0px; ;
-        height: 400px;
-        width: 45%;
-        left: 0;
-        top: 300px;
-    }
-    .client-box::after{
-        position: absolute;
-        content: " ";
-        background-image: url("../image/dots-decoration.png");
-        width: 154px;
-        height: 154px;
-        top: 385px;
-        right: 0;
     }
     .client-feedback {
         width: 50%;
@@ -357,38 +369,55 @@ html {
         .feedback-text {
             height: 40%;
             margin-top: 43.13px;
+            margin-bottom: 40px;
             font-size: 1rem;
             opacity: 0.5;
             line-height: 24px;
         }
         .client-name {
-            margin-top: 40px;
             font-size: 18px;
             font-weight: 500;
         }
     }
-    .carousel-button-box {
-        float: right;
-        display: flex;
-        a {
-            text-align: center;
-            font-size: 56px;
-            font-weight: 300;
-            color: $font-blue;
-            width: 80px;
-            height: 80px;
-            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
-            border-radius: 4px;
-            padding: auto auto;
-            transition: .1s;
-        }
+}
 
-       .left:hover, .right:hover{
-        background-color: $font-blue;
-        color: #FFFFFF;
-       }
-       }
+.carousel-slide {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: none;
+    scroll-snap-align: center;
+    a {
+        background: none;
+        border: none;
+        z-index: 1;
     }
+}
+
+.left, .carousel-box::before{
+    transform: rotate(135deg);
+    right: 10%;
+}
+.right, .carousel-box::after {
+    transform: rotate(-45deg);
+    right: 5%;
+} 
+.left, .right, .carousel-box::before, .carousel-box::after {
+    position: absolute;
+    bottom: 5%;
+    width: 20px;
+    height: 20px;
+    border: solid black;
+    border-width: 0 4px 4px 0;
+    padding: 3px; 
+}
+.carousel-box::before, .carousel-box::after {
+    content: " ";
+    background: none;
+    z-index: 1;
+    pointer-events: none;
+}
 
 // Download to enjoy section 
 .download-to-more {
@@ -559,6 +588,85 @@ html {
         display: flex;
         &__element {
             margin-left: 18.74px;
+        }
+    }
+}
+
+
+// MOBILE AND PAD VERSION 
+
+@media (max-width:880px) {
+    .main-logo {
+        font-size: 25px;
+    }
+    .header__nav {
+        .menu-element {
+            font-size: 10px;
+        }
+    }
+    .header__content {
+        padding-top:0 ;
+        &-info {
+            width: 70%;
+        }
+        &-image {
+            margin: 0;
+            width: 30%;
+            .mockup-small{
+                left: -70px;
+                -webkit-transform: scale(0.75);
+                transform: scale(0.75);
+            } 
+            .mockup-big{
+                bottom: -9px;
+                left: -77px;
+                -webkit-transform: scale(0.75);
+                transform: scale(0.75);
+            }
+        }
+        &-title {
+            font-size: 25px;
+        }
+        &-text {
+            font-size: 15px;
+        }
+        &-download {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            font-size: 12px;
+            
+        }
+    }
+   
+} 
+@media (max-width:450px) {
+    .header__content {
+        &-info {
+            width: 70%;
+        }
+        &-image {
+            .mockup-small{
+                -webkit-transform: scale(0.6);
+                transform: scale(0.6);
+                left: -80px;
+                bottom: 55px;
+                }
+            .mockup-big {
+                display: none;
+            }
+        }
+        &-title {
+            font-size: 20px;
+        }
+        &-text {
+            font-size: 10px;
+        }
+        &-download {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            font-size: 10px;
         }
     }
 }
