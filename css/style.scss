@@ -57,9 +57,13 @@ html {
     margin: 0 auto;
     padding: 0 30px;
 }
-
+@media (max-width:1360px) {
+    .container {
+        max-width: 1000px;
+    }
+}
 @media (max-width:460px) {
-    .main-logo {
+    .main-logo { 
         font-size: 25px;
     }
     .header__nav {

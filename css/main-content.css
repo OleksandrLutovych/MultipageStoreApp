@@ -69,6 +69,8 @@ html {
   background-color: #FFFFFF;
 }
 .info-card__img {
+  width: 100%;
+  height: auto;
   margin-bottom: 56px;
 }
 .info-card__title {
