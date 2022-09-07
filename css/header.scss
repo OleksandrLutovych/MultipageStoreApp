@@ -1,5 +1,5 @@
-$font-blue: #4A99D3;
-$font-hover: #173e59;
+@import 'variable';
+
 *, 
 ::after,
 ::before {
@@ -11,7 +11,7 @@ $font-hover: #173e59;
 body, p, a, h1, h2, h3 {
     margin: 0;
     padding: 0;
-    letter-spacing: .5px;
+    letter-spacing: .5px; 
     font-family: 'Roboto';
     font-style: normal;
     color: #0F001A;
@@ -122,34 +122,49 @@ html {
     }
     
 }
-// Media 880 ==
-@media (max-width:880px) {
-    html {
-        font-size: 11px;
+// Media 
+@media (max-width:1360px) {
+    .header__content {
+        &-image {
+            .mockup-small{
+                left: -70px; 
+            } 
+            .mockup-big{
+                right: -40px;
+            } 
     }
-// header  
+}
+}
+@media (min-width:$tablet-min) and (max-width:$tablet-max)  {
+    .header__nav { 
+        margin-bottom: 0px;
+        .menu-element {
+            display: none;
+        }
+    }
     .header__content {
         padding-top:0 ;
         &-info {
-            width: 60%;
+            width: 50%;
         }
         &-image {
             margin-right: 5px;
-            width: 40%;
+            width: 50%;
             .mockup-small{
-                left: -70px;
+                right: 100px;
+                top: 65px;
                 -webkit-transform: scale(0.75);
                 transform: scale(0.75);
             } 
-            .mockup-big{
-                bottom: -9px;
-                left: 20px;
+            .mockup-big{ 
+                top: 0;
+                right: 0;
                 -webkit-transform: scale(0.75);
                 transform: scale(0.75);
             }
-        }
-        &-title {
-            font-size: 25px;
+        } 
+        h1 {
+            font-size: 35px;
         }
         &-text {
             font-size: 15px;
@@ -161,44 +176,49 @@ html {
             font-size: 12px;
             
         }
+        &-download {
+            display: block;
+        }
     }
 }
-
-@media (max-width:460px) {
-    .main-logo {
+@media (min-width:$mobile-min) and (max-width:$mobile-max)  {
+    .main-logo { 
         font-size: 25px;
     }
     .header__nav {
-        margin-bottom: 0px;
+        padding-top: 10px;
+        margin-bottom: 10px;
         .menu-element {
             display: none;
         }
     }
     .header__content {
+        display: block;
         padding-bottom: 0;
         &-info {
-            width: 70%;
+            width: 100%;
         }
         &-image {
             margin-bottom: 0;
             .mockup-small{
-                -webkit-transform: scale(0.5);
-                transform: scale(0.5);
-                left: -80px;
-                bottom: 0;
+                -webkit-transform: scale(0.7);
+                transform: scale(0.7);
+                top: -10px;
+                left: -50px;
                 }
             .mockup-big {
-                -webkit-transform: scale(0.5);
-                transform: scale(0.5);
-                left: -60px;
+                -webkit-transform: scale(0.7);
+                transform: scale(0.7);
+                top: -74px;
+                left: 80px;
             }
         }
-        &-title {
-            font-size: 20px;
-        }
-        &-text {
-            font-size: 10px;
-        }
+        // &-title {
+        //     font-size: 20px;
+        // }
+        // &-text {
+        //     font-size: 16px;
+        // }
         &-download {
             display: flex;
             flex-direction: column;
@@ -207,3 +227,4 @@ html {
         }
     }
 }
+ 

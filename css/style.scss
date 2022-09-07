@@ -1,6 +1,6 @@
-$font-blue: #4A99D3;
-$font-hover: #173e59;
-*, 
+ @import 'variable';
+ 
+*,  
 ::after,
 ::before {
     box-sizing: border-box;
@@ -9,7 +9,7 @@ $font-hover: #173e59;
 }
 
 body, p, a, h1, h2, h3 {
-    margin: 0;
+    margin: 0; 
     padding: 0;
     letter-spacing: .5px;
     font-family: 'Roboto';
@@ -59,49 +59,6 @@ html {
 }
 @media (max-width:1360px) {
     .container {
-        max-width: 1000px;
-    }
-}
-@media (max-width:460px) {
-    .main-logo { 
-        font-size: 25px;
-    }
-    .header__nav {
-        margin-bottom: 0px;
-        .menu-element {
-            display: none;
-        }
-    }
-    .header__content {
-        padding-bottom: 0;
-        &-info {
-            width: 70%;
-        }
-        &-image {
-            margin-bottom: 0;
-            .mockup-small{
-                -webkit-transform: scale(0.5);
-                transform: scale(0.5);
-                left: -80px;
-                bottom: 0;
-                }
-            .mockup-big {
-                -webkit-transform: scale(0.5);
-                transform: scale(0.5);
-                left: -60px;
-            }
-        }
-        &-title {
-            font-size: 20px;
-        }
-        &-text {
-            font-size: 10px;
-        }
-        &-download {
-            display: flex;
-            flex-direction: column;
-            justify-content: left;
-            font-size: 10px;
-        }
+        max-width: 900px;
     }
 }

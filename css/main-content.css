@@ -120,11 +120,67 @@ html {
   bottom: 2%;
 }
 
-@media (max-width: 880px) {
+@media (min-width: 481px) and (max-width: 880px) {
+  .main-content__wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .main-content__title {
+    margin: 0 auto;
+    padding: 45px 0;
+    text-align: center;
+  }
   .main-content__decoration-blue, .main-content__decoration-orange {
-    transform: scale(0.7);
+    width: 100px;
+    height: 100px;
   }
   .main-content h2 {
     font-size: 25px;
+  }
+  .main-content__wrapper {
+    display: block;
+  }
+  .main-content .info-card {
+    margin: 10px auto;
+  }
+  .main-content .left-part {
+    position: relative;
+    width: 100%;
+  }
+  .main-content .right-part {
+    position: relative;
+    width: 100%;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .main-content__wrapper {
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+  .main-content__title {
+    margin: 0 auto;
+    padding: 45px 0;
+    text-align: center;
+  }
+  .main-content__decoration-blue, .main-content__decoration-orange {
+    width: 100px;
+    height: 100px;
+  }
+  .main-content h2 {
+    font-size: 25px;
+  }
+  .main-content__wrapper {
+    display: block;
+  }
+  .main-content .info-card {
+    margin: 10px auto;
+  }
+  .main-content .left-part {
+    position: relative;
+    width: 100%;
+  }
+  .main-content .right-part {
+    position: relative;
+    width: 100%;
   }
 }/*# sourceMappingURL=main-content.css.map */

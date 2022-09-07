@@ -1,5 +1,4 @@
-$font-blue: #4A99D3;
-$font-hover: #173e59;
+ @import 'variable'; 
 
 // What our client say + Download to more 
 .feedback{
@@ -52,7 +51,6 @@ $font-hover: #173e59;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
     }
-   
     .client-box {  
         position: relative; 
         width: 50%;
@@ -60,7 +58,8 @@ $font-hover: #173e59;
     .client-feedback {
         width: 50%;
         height: 100%;
-        margin-top: 212px;
+        margin: 212px 10px 10px;
+
         .feedback-text {
             height: 40%;
             margin-top: 43.13px;
@@ -131,13 +130,13 @@ $font-hover: #173e59;
         img:nth-child(2){
             position: absolute;
             top: -57px;
-            left: 138px;
+            left: 20%;
             z-index: 2;
         }
         img:nth-child(3) {
             position: absolute;
             top: 0;
-            left: 340px;
+            right: 22%;
         }
     }
     @keyframes phones {
@@ -183,11 +182,49 @@ $font-hover: #173e59;
         
     }
 }
+@media (max-width:1360px) {
+    .download-to-more {
+        &__mockUp {
+            img:nth-child(3) {
+                right: 0;
+            }
+        }
+}
+}
+@media (max-width:740px) {
+    .carousel-slide {
+        .client-box {
+            display: none;
+        }
+        .client-feedback {
+            width: 100%;
+        }
+    }
+    .feedback::before {
+        width: 45%;
+        top: 300px;
+    }  
+    .download-to-more {
+        &__mockUp {
+            img:nth-child(3) {
+                display: none;
+            }
+        }
+        &__button_box {
+            margin-top: 20px;
+            flex-wrap: wrap;
+            .download-button{
+                margin: 10px;
+            }
+        }
+    }
 
-@media (max-width: 880px) {
+}
+@media (min-width:$tablet-min) and (max-width:$tablet-max){  
     // feedback section 
     .feedback__decoration-blue, .feedback__decoration-orange {
-        transform: scale(0.75);
+        width: 100px;
+        height: 100px; 
     }
     .feedback::before {
         height: 325px;
@@ -199,6 +236,9 @@ $font-hover: #173e59;
     .carousel {
         margin-bottom: 50px;
     }
+    .carousel .client-feedback {
+        margin-top: 150px;
+    } 
     .client-photo {
         transform: scale(0.7);
     }
@@ -212,12 +252,50 @@ $font-hover: #173e59;
             }
             img:nth-child(2){
                 transform: scale(0.7);
-                left: 90px;
+                left: 20%;
             }
             img:nth-child(3) {
                 transform: scale(0.7);
-                left: 240px;
+                right: 0;
             }
         }
     } 
+}
+@media (min-width:$mobile-min) and (max-width:$mobile-max){
+    .feedback::before {
+        height: 300px;
+    }
+    .carousel {
+        margin-bottom: 50px;
+        .client-feedback{
+            margin-top: 90px;
+        }
+    }
+    .section__wrapper{
+        h3 {
+            padding-top: 45px;
+        }
+    }
+    .download-to-more {
+        display: block;
+        &__mockUp {
+            width: 100%;
+            img:nth-child(1) {
+                transform: scale(0.7);
+                top: 0;
+                left: 0;
+            }
+            img:nth-child(2){
+                transform: scale(0.7);
+                left: 25%;
+            }
+    }
+    &__info { 
+        width: 100%;
+    } 
+} 
+.feedback__decoration-blue, .feedback__decoration-orange {
+    width: 100px;
+    height: 100px; 
+}
 }

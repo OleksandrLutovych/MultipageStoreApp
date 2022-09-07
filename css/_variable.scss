@@ -1,0 +1,16 @@
+$font-blue: #4A99D3;
+$font-hover: #173e59; 
+
+$tablet-min: 481px;
+$tablet-max: 880px;
+$mobile-min: 320px;
+$mobile-max: 480px;  
+ 
+@mixin tablet {
+    @media (min-width :#{$tablet-min}) and (max-width: #{$tablet-max}) {
+    } 
+} 
+@mixin mobile {
+    @media (min-width:#{$mobile-min}) and (max-width:#{$mobile-max}) {
+    } 
+} 
