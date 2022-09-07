@@ -1,0 +1,44 @@
+$font-blue: #4A99D3; 
+$font-hover: #173e59;
+
+// HOWITWORKS 
+.how-it-works {
+    background: rgba(74, 153, 211, 0.1);
+    height: 100%;
+    &__wrapper{
+    padding: 95px 0;
+    h3 {
+        font-size: 26px;
+        color: $font-blue;
+        text-align: center;
+        margin-bottom: 92px;
+    }
+    }
+    &__elements-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .element {
+        text-align: center;
+        font-size: 1rem; 
+        width: 14em;
+        &__img {
+            margin-bottom: 1.8em;
+        }
+        &__title {
+            font-size: 1.12em;
+            font-weight: 500;
+            line-height: 1.18em;
+            margin-bottom: 0.6em;
+            
+        }
+        &__text {
+            font-size: 1em;
+            line-height: 1.62em;
+            
+        }
+    }
+
+
+}

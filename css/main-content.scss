@@ -1,0 +1,137 @@
+$font-blue: #4A99D3;
+$font-hover: #173e59;
+*, 
+::after,
+::before {
+    box-sizing: border-box;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: 0px;
+}
+
+body, p, a, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    letter-spacing: .5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    color: #0F001A;
+    text-decoration: none;
+}
+html {
+    font-size: 16px;
+}
+
+// Main-section ====
+.main-content {
+    position: relative;
+    &__wrapper {
+    padding: 150px 0;
+    display: flex;
+    justify-content: space-between;
+}
+    .left-part {
+        position: relative; 
+        width: 50%;
+        }
+    .right-part {
+        position: relative;
+        width: 50%;
+    } 
+    &__title{
+        max-width: 380px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 46px;
+        letter-spacing: 0.05em;
+        margin-bottom: 170px;
+    }
+    &__decoration-blue {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &__decoration-orange {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}  
+// main info card 
+.info-card {
+    position: relative;
+    z-index: 50;
+    max-width: 380px;
+    min-height: 525px;
+    box-shadow: 5px 20px 50px rgba(74, 153, 211, 0.2);
+    border-radius: 10px;
+    padding: 48px;
+    margin-bottom: 113px;
+    margin-left: 105px;
+    background-color: #FFFFFF;
+&__img {
+    margin-bottom: 56px;
+    }
+&__title {
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 30px;
+    margin-bottom: 16px;
+}
+&__text {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 26px;
+    margin-bottom: 62px;
+    opacity: 0.6;
+}
+&__button {
+    a {
+        display: flex;
+        align-items: center;
+        p {
+        color: $font-blue;
+        font-weight: 500;
+        font-size: 0.9rem;
+        line-height: 30px;
+        margin-right: 19px;
+        }
+    }
+    img {
+        width: 16px;
+        height: 16px;
+    }
+
+}
+
+}
+
+// main dots decoration 
+.dots-decoration-receive {
+    position: absolute;
+    top: 500px;
+    z-index: 0;
+}
+.dots-decoration-send{
+    position: absolute;
+    top: -5%;
+    right: 15%;
+}
+.dots-decoration-buy{
+    position: absolute;
+    right: 15%;
+    bottom: 2%;
+}
+
+
+@media (max-width:880px) { 
+    // main content 
+.main-content{
+    &__decoration-blue, &__decoration-orange {
+        transform: scale(0.7);
+    }
+    h2 {
+        font-size: 25px;
+    }
+}
+}

@@ -1,0 +1,223 @@
+.feedback {
+  position: relative;
+}
+.feedback__decoration-blue {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.feedback__decoration-orange {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.feedback::before {
+  position: absolute;
+  content: " ";
+  background: rgba(74, 153, 211, 0.1);
+  height: 400px;
+  width: 40%;
+  top: 300px;
+}
+
+.feedback::after {
+  content: " ";
+  position: absolute;
+  background-image: url("../image/dots-decoration.png");
+  top: 420px;
+  right: 0;
+  width: 154px;
+  height: 154px;
+}
+
+.section__wrapper h3 {
+  padding-top: 140px;
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 11px;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+  margin-bottom: 215px;
+}
+.carousel-box {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+}
+.carousel .client-box {
+  position: relative;
+  width: 50%;
+}
+.carousel .client-feedback {
+  width: 50%;
+  height: 100%;
+  margin-top: 212px;
+}
+.carousel .client-feedback .feedback-text {
+  height: 40%;
+  margin-top: 43.13px;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  opacity: 0.5;
+  line-height: 24px;
+}
+.carousel .client-feedback .client-name {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.carousel-slide {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: none;
+  scroll-snap-align: center;
+}
+.carousel-slide a {
+  background: none;
+  border: none;
+  z-index: 1;
+}
+
+.left, .carousel-box::before {
+  transform: rotate(135deg);
+  right: 10%;
+}
+
+.right, .carousel-box::after {
+  transform: rotate(-45deg);
+  right: 5%;
+}
+
+.left, .right, .carousel-box::before, .carousel-box::after {
+  position: absolute;
+  bottom: 1%;
+  width: 20px;
+  height: 20px;
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  padding: 3px;
+}
+
+.carousel-box::before, .carousel-box::after {
+  content: " ";
+  z-index: 1;
+  pointer-events: none;
+}
+
+.download-to-more {
+  display: flex;
+  padding-bottom: 150px;
+}
+.download-to-more__mockUp {
+  position: relative;
+  width: 50%;
+  -webkit-animation-name: phones;
+          animation-name: phones;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+.download-to-more__mockUp img:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.download-to-more__mockUp img:nth-child(2) {
+  position: absolute;
+  top: -57px;
+  left: 138px;
+  z-index: 2;
+}
+.download-to-more__mockUp img:nth-child(3) {
+  position: absolute;
+  top: 0;
+  left: 340px;
+}
+@-webkit-keyframes phones {
+  0% {
+    transform: translateX(-2000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes phones {
+  0% {
+    transform: translateX(-2000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.download-to-more__info {
+  width: 50%;
+}
+.download-to-more__info_title {
+  margin-top: 60px;
+  font-weight: 700;
+  font-size: 1.56rem;
+  text-align: center;
+}
+.download-to-more__info_text {
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 24px;
+  opacity: 0.5;
+  text-align: center;
+}
+.download-to-more__button_box {
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+.download-to-more__button_box .download-button {
+  margin: 0;
+  background-color: #0F001A;
+}
+.download-to-more__button_box .download-button:hover {
+  background-color: #4A99D3;
+}
+
+@media (max-width: 880px) {
+  .feedback__decoration-blue, .feedback__decoration-orange {
+    transform: scale(0.75);
+  }
+  .feedback::before {
+    height: 325px;
+  }
+  .feedback::after {
+    width: 108px;
+    height: 108px;
+  }
+  .carousel {
+    margin-bottom: 50px;
+  }
+  .client-photo {
+    transform: scale(0.7);
+  }
+  .download-to-more__mockUp img:nth-child(1) {
+    transform: scale(0.7);
+    top: 0;
+    left: 0;
+  }
+  .download-to-more__mockUp img:nth-child(2) {
+    transform: scale(0.7);
+    left: 90px;
+  }
+  .download-to-more__mockUp img:nth-child(3) {
+    transform: scale(0.7);
+    left: 240px;
+  }
+}/*# sourceMappingURL=feedback.css.map */
