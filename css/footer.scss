@@ -56,6 +56,9 @@ html {
         .box-element:hover{
             text-decoration: underline;
         }
+        .responsive-button {
+            display: none;
+        }
     }
     .subscribe{
         display: flex;
@@ -70,7 +73,7 @@ html {
             margin-bottom: 20px;
         }
         input {
-            width: 70%;
+            max-width: 460px;
             height: 50px;
             font-weight: 400;
             font-size: 1.4em;
@@ -125,11 +128,51 @@ html {
     }
 }
 
-@media (max-width: 880px) {
+@media (min-width:$tablet-min) and (max-width:$tablet-max) {
     // footer 
     .footer__content {
+        flex-wrap: wrap;
         .logo p{
-            margin-right: 100px;
+            margin-right: 50px;
         }
-} 
+        &-box {
+            margin-right: 15px;
+            .box-element-title {
+                margin-bottom: 15px;
+            }
+            .box-element {
+                margin-bottom: 8px;
+            }
+            
+        }
+}
+
+}
+@media (min-width:$mobile-min) and (max-width:$mobile-max) {
+    .footer__content { 
+        display: block; 
+        &-box {
+            padding: 5px;
+            margin: 15px 0;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: solid #FFFFFF .5px;
+            .box-element {
+                display: none;
+            }  
+            .box-element-title {
+                text-decoration: none;
+                margin:0;
+            }
+            .responsive-button {
+                font-size: 1.12rem;
+                color: #FFFFFF;
+                display: block;
+            }
+        }
+    } 
+    .subscribe{ 
+        margin-top: 30px;
+    }
 }
