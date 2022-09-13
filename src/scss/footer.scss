@@ -1,24 +1,5 @@
 @import 'variable';
-*, 
-::after,
-::before {
-    box-sizing: border-box;
-    scrollbar-color: transparent transparent;
-    scrollbar-width: 0px;
-}
 
-body, p, a, h1, h2, h3 {
-    margin: 0;
-    padding: 0;
-    letter-spacing: .5px;
-    font-family: 'Roboto';
-    font-style: normal;
-    color: #0F001A;
-    text-decoration: none;
-}
-html {
-    font-size: 16px;
-}
 // Footer
 .footer {
     background-color: $font-blue;

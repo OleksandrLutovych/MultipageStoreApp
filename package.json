@@ -1,0 +1,28 @@
+{
+  "name": "oleksandr-lutovych-front-end-lessons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.foxminded.com.ua/foxstudent102643/oleksandr-lutovych-front-end-lessons.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.10",
+    "csso": "^5.0.5",
+    "gulp": "^4.0.2",
+    "sass": "^1.54.9"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-sass": "^5.1.0",
+    "include": "^1.1.0"
+  }
+}
