@@ -1,64 +1,70 @@
- @import 'variable';
- 
-*,  
+@import "variable";
+
+*,
 ::after,
 ::before {
-    box-sizing: border-box;
-    scrollbar-color: transparent transparent;
-    scrollbar-width: 0px;
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: 0px;
 }
 
-body, p, a, h1, h2, h3 {
-    margin: 0; 
-    padding: 0;
-    letter-spacing: .5px;
-    font-family: 'Roboto';
-    font-style: normal;
-    color: #0F001A;
-    text-decoration: none;
+body,
+p,
+a,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.5px;
+  font-family: "Roboto";
+  font-style: normal;
+  color: #0f001a;
+  text-decoration: none;
 }
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 // Buttons setting
 .download-button {
-        display: flex;
-        background-color: $font-blue;
-        width: 18em;
-        height: 6em;
-        padding: 1.4em;
-        border-radius: .5em;
-        margin-right: 2em;
-        margin-bottom: 10px;
-        transition: .2s;
-}
-.download-button:hover {
-        background-color: $font-hover; 
-}
-.google-image {
-        height: 3em;
-        width: 2.7em;
-}
-.google-top-text, .google-bottom-text  {
-        color: #FFFFFF;
-        margin-left: 12px;
-        font-family: 'Roboto', sans-serif;
-}
-.google-top-text {
-        font-size: 1em;
-}
-.google-bottom-text{
-        text-align: center;
-        font-size: 1.6em;
+  display: flex;
+  background-color: $font-blue;
+  width: 18em;
+  height: 6em;
+  padding: 1.4em;
+  border-radius: 0.5em;
+  margin-right: 2em;
+  margin-bottom: 10px;
+  transition: 0.2s;
+  &:hover {
+    background-color: $font-hover;
+  }
+  .google-image {
+    height: 3em;
+    width: 2.7em;
+  }
+  .google-top-text,
+  .google-bottom-text {
+    color: #ffffff;
+    margin-left: 12px;
+    font-family: "Roboto", sans-serif;
+  }
+  .google-top-text {
+    font-size: 1em;
+  }
+  .google-bottom-text {
+    text-align: center;
+    font-size: 1.6em;
+  }
 }
 // Container setting
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
 }
-@media (max-width:1360px) {
-    .container {
-        max-width: 900px;
-    }
+@media (max-width: 1360px) {
+  .container {
+    max-width: 900px;
+  }
 }
