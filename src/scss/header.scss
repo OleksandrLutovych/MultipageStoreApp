@@ -44,22 +44,17 @@
   }
   .responsive-btn {
     display: none;
-    justify-content: space-between;
-    flex-direction: column;
+    font-size: 1.5rem;
+    color: $font-blue;
+    text-align: center;
     position: absolute;
     right: 0;
-    height: 30px;
     &:hover {
-      span {
-        background-color: $font-hover;
-      }
+      color: $font-hover;
     }
-    span {
-      border-radius: 10px;
-      background-color: $font-blue;
-      width: 35px;
-      height: 5px;
-    }
+  }
+  #responsive {
+    display: none;
   }
 }
 
@@ -151,11 +146,11 @@
       text-align: end;
       margin: 10px 0;
     }
-    &-menu.active {
-      display: flex;
-    }
     .responsive-btn {
-      display: inherit;
+      display: block;
+    }
+    input[type=checkbox]:checked ~ .header__nav-menu {
+        display: flex;
     }
   }
   .header__content {
@@ -216,12 +211,12 @@
       text-align: end;
       margin: 10px 0;
     }
-    &-menu.active {
-      display: flex;
-    }
     .responsive-btn {
-      display: inherit;
+      display: block;
     }
+    input[type=checkbox]:checked ~ .header__nav-menu {
+      display: flex;
+  }
   }
   .header__content {
     display: block;

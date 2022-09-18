@@ -10,7 +10,7 @@
   .logo p {
     font-weight: 700;
     font-size: 34px;
-    color: #ffffff;
+    color: $white;
     margin-right: 145px;
   }
   &-box {
@@ -21,7 +21,7 @@
     .box-element-title {
       font-weight: 500;
       font-size: 1.12rem;
-      color: #ffffff;
+      color: $white;
       text-decoration: underline;
       margin-bottom: 34px;
     }
@@ -31,13 +31,18 @@
     .box-element {
       font-weight: 300;
       font-size: 0.87rem;
-      color: #ffffff;
+      color: $white;
       margin-bottom: 18px;
     }
     .box-element:hover {
       text-decoration: underline;
     }
-    .responsive-button {
+    .responsive-footer {
+      display: none;
+    }
+    #links,
+    #products,
+    #others {
       display: none;
     }
   }
@@ -50,7 +55,7 @@
       font-weight: 300;
       font-size: 1.8em;
       line-height: 26px;
-      color: #ffffff;
+      color: $white;
       margin-bottom: 20px;
     }
     input {
@@ -69,7 +74,7 @@
     a {
       width: 116px;
       height: 50px;
-      background-color: #ffffff;
+      background-color: $white;
       font-weight: 700;
       font-size: 1.6em;
       color: $font-blue;
@@ -82,12 +87,12 @@
     }
     a:hover {
       background-color: $font-hover;
-      color: #ffffff;
+      color: $white;
     }
   }
 }
 .footer__subcontent {
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid $white;
 }
 .footer__subcontent-box {
   display: flex;
@@ -97,7 +102,7 @@
     p {
       font-weight: 700;
       font-size: 10.41px;
-      color: #ffffff;
+      color: $white;
     }
   }
   .media-box {
@@ -129,25 +134,32 @@
 }
 @media (min-width: $mobile-min) and (max-width: $mobile-max) {
   .footer__content {
+    position: relative;
     display: block;
     &-box {
       padding: 5px;
       margin: 15px 0;
       width: 100%;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
-      border-bottom: solid #ffffff 0.5px;
+      border-bottom: solid $white 0.5px;
       .box-element {
         display: none;
+        margin: 7px 0;
       }
       .box-element-title {
         text-decoration: none;
-        margin: 0;
+        margin: 0 0 15px 0;
       }
-      .responsive-button {
+      .responsive-footer {
+        position: absolute;
+        right: 0;
         font-size: 1.12rem;
-        color: #ffffff;
+        color: $white;
         display: block;
+      }
+      input[type="checkbox"]:checked ~ .box-element {
+        display: flex;
       }
     }
   }

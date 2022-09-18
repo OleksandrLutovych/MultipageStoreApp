@@ -313,7 +313,12 @@
 .footer__content-box .box-element:hover {
   text-decoration: underline;
 }
-.footer__content-box .responsive-button {
+.footer__content-box .responsive-footer {
+  display: none;
+}
+.footer__content-box #links,
+.footer__content-box #products,
+.footer__content-box #others {
   display: none;
 }
 .footer__content .subscribe {
@@ -404,27 +409,34 @@
 }
 @media (min-width: 320px) and (max-width: 480px) {
   .footer__content {
+    position: relative;
     display: block;
   }
   .footer__content-box {
     padding: 5px;
     margin: 15px 0;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     border-bottom: solid #ffffff 0.5px;
   }
   .footer__content-box .box-element {
     display: none;
+    margin: 7px 0;
   }
   .footer__content-box .box-element-title {
     text-decoration: none;
-    margin: 0;
+    margin: 0 0 15px 0;
   }
-  .footer__content-box .responsive-button {
+  .footer__content-box .responsive-footer {
+    position: absolute;
+    right: 0;
     font-size: 1.12rem;
     color: #ffffff;
     display: block;
+  }
+  .footer__content-box input[type=checkbox]:checked ~ .box-element {
+    display: flex;
   }
   .subscribe {
     margin-top: 30px;
@@ -543,20 +555,17 @@ html {
 }
 .header__nav .responsive-btn {
   display: none;
-  justify-content: space-between;
-  flex-direction: column;
+  font-size: 1.5rem;
+  color: #4a99d3;
+  text-align: center;
   position: absolute;
   right: 0;
-  height: 30px;
 }
-.header__nav .responsive-btn:hover span {
-  background-color: #173e59;
+.header__nav .responsive-btn:hover {
+  color: #173e59;
 }
-.header__nav .responsive-btn span {
-  border-radius: 10px;
-  background-color: #4a99d3;
-  width: 35px;
-  height: 5px;
+.header__nav #responsive {
+  display: none;
 }
 
 .header__content {
@@ -643,11 +652,11 @@ html {
     text-align: end;
     margin: 10px 0;
   }
-  .header__nav-menu.active {
-    display: flex;
-  }
   .header__nav .responsive-btn {
-    display: inherit;
+    display: block;
+  }
+  .header__nav input[type=checkbox]:checked ~ .header__nav-menu {
+    display: flex;
   }
   .header__content {
     padding-top: 0;
@@ -708,11 +717,11 @@ html {
     text-align: end;
     margin: 10px 0;
   }
-  .header__nav-menu.active {
-    display: flex;
-  }
   .header__nav .responsive-btn {
-    display: inherit;
+    display: block;
+  }
+  .header__nav input[type=checkbox]:checked ~ .header__nav-menu {
+    display: flex;
   }
   .header__content {
     display: block;
