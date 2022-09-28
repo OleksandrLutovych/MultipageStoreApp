@@ -26,16 +26,13 @@ function hexColorFunc() {
   colorByHex = "#" + colorByHex;
   return colorByHex;
 }
-
-const colorsMethodArray = [nameColorFunc, rgbColorFunc, hexColorFunc];
+console.log(colorByName);
+let colorsMethodArray = [nameColorFunc, rgbColorFunc, hexColorFunc];
 function randomColorsFunc() {
-  const randomColorsMethod = Math.floor(
-    Math.random() * colorsMethodArray.length
-  );
-  document.body.style.background = colorsMethodArray[randomColorsMethod]();
-  backgroundText.textContent = colorsMethodArray[randomColorsMethod]();
+  let randomColors = Math.floor(Math.random() * colorsMethodArray.length);
+  backgroundText.textContent = colorsMethodArray[randomColors]();
+  document.body.style.background = backgroundText.textContent;
 }
-
 changeColor.addEventListener("click", randomColorsFunc);
 
 randomColorsFunc();
