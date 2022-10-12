@@ -21,7 +21,10 @@ function toHTML(dishes) {
 
 fetch(urlOfItem)
   .then((response) => response.json())
-  .then((data) => (menuItem = data));
+  .then((data) => (
+    menuItem = data,
+    dishesBlock.innerHTML = rendering("All")
+    ));
 
 const rendering = (type) =>
   type === "All"
@@ -36,5 +39,3 @@ btn.forEach((btn) => {
     dishesBlock.innerHTML = rendering(btn.innerHTML);
   });
 });
-
-dishesBlock.innerHTML = rendering("All");
