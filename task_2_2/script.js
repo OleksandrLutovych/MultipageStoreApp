@@ -27,7 +27,7 @@ const rendering = (type) =>
   type === "All"
     ? menuItem.map(toHTML).join("")
     : menuItem
-        .map((dish) => dish.type === type && toHTML(dish))
+        .map((dish) => dish.type === type ? toHTML(dish): '')
         .join("");
 
 btn.forEach((btn) => {
