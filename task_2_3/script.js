@@ -1,7 +1,6 @@
 const randomArr = Array.from({ length: 50 }, () =>
   Math.floor(Math.random() * 100)
 );
-const newArr = [7, 6, 3, 2, 6, 8, 3, 5, 12, 45, 65, 65];
 let count = 0;
 function bubbleSort(arr) {
   console.time("timer of bubble sort");
@@ -91,7 +90,7 @@ function mergeSort(arr) {
 
   let leftSpliteArray = mergeSort(leftArr);
   let rightSplitArray = mergeSort(rightArr);
-  return sortArray(leftSpliteArray, rightSplitArray);
+  return sortArrayForMergeSort(leftSpliteArray, rightSplitArray);
 }
 console.timeEnd("timer of merge sort");
 /*
@@ -107,7 +106,7 @@ console.timeEnd("timer of merge sort");
 7. А метод возвращает масив который при помощи метода concat будет соединен с левого отсортированого масива и правого. 
 */
 
-function sortArray(left, right) {
+function sortArrayForMergeSort(left, right) {
   let mergedArr = [];
   let leftIndex = 0;
   let rightIndex = 0;
