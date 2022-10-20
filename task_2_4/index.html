@@ -18,33 +18,38 @@
         <div class="form__text label-property">
             <label for="name">First name*</label>
             <input class="input-style" type="text" placeholder="enter your first name" id="name" name="name">
+            <span></span>
         </div>
 
         <div class="form__text label-property">
             <label for="lastname">Last name</label>
             <input class="input-style" type="text" placeholder="enter your last name" id="lastname" name="lastname">
+            <span></span>
         </div>
 
         <div class="form__email label-property">
             <label for="email">Email*</label>
             <input class="input-style" type="email" placeholder="enter your email" id="email" name="email">
+            <span></span>
         </div>
 
         <div class="form__password label-property">
             <label for="password">Password*</label>
             <input class="input-style" type="password" placeholder="enter your password" id="password" name="password">
+            <span></span>
         </div>
 
         <div class="form__password label-property">
             <label for="passconfirm">Confirm Password*</label>
             <input class="input-style" type="password" placeholder="enter your password again" id="passconfirm"
                 name="passconfirm">
+                <span></span>
         </div>
 
         <div class="form__radio-gender label-property">
             <p>Gender:</p>
             <div class="form__radio-gender_box">
-                <input class="input-style-gender" type="radio" name="gender" id="male">
+                <input class="input-style-gender" type="radio" name="gender" id="male" required>
                 <label for="male">Male</label><br>
                 <input class="input-style-gender" type="radio" name="gender" id="female">
                 <label for="female">Female</label><br>
@@ -54,7 +59,7 @@
         <div class="form__radio-hobbies label-property">
             <p>Hobbies</p>
             <div class="form__radio-hobbies_box">
-                <input class="input-style-hobbies" type="radio" name="hobbies" id="music">
+                <input class="input-style-hobbies" type="radio" name="hobbies" id="music" required>
                 <label for="music">Music</label>
                 <input class="input-style-hobbies" type="radio" name="hobbies" id="sports">
                 <label for="sports">Sports</label>
@@ -67,7 +72,7 @@
 
         <div id="source-of-income" class="form__select label-property">
             <label for="">Source of Income</label>
-            <select class="source-of-income__input-style" name="" id="source-of-income">
+            <select class="source-of-income__input-style" name="" id="source-of-income" required>
                 <option value="Employed">Employed</option>
                 <option value="Business">Business</option>
                 <option value="Stock Devidends">Stock Devidends</option>
@@ -75,14 +80,14 @@
             </select>
         </div>
 
-        <div oninput="result.value=parseInt(a.value)" class="form__range label-property">
+        <div oninput= "result.value=parseInt(a.value)" class="form__range label-property">
             <label for="">Income</label>
             <div class="income__inner">
                 <input class="oninput2" type="range" name="a" value="20">
                 <div class="colorblock">
                     <output class="oninput1" name="result">20</output>
                     <p class="oninput2">K</p>
-                </div>
+                </div>  
             </div>
         </div>
 
@@ -92,7 +97,7 @@
         </div>
 
         <div class="form__text label-property">
-            <label for="">Age</label>
+            <label for="">Date of birth</label>
             <input class="input-style" type="text">
         </div>
 
