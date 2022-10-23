@@ -1,0 +1,71 @@
+[{
+    "name": "Pancakes",
+    "price": "$15.99",
+    "type": "Breakfast",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Diner Double",
+    "price": "$13.99",
+    "type": "Dinner",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Godzila",
+    "price": "$6.99",
+    "type": "Shakes",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Country Delight",
+    "price": "$20.99",
+    "type": "Breakfast",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Egg Attack",
+    "price": "$22.99",
+    "type": "Lunch",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Oreo Dream",
+    "price": "$18.99",
+    "type": "Shakes",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Bacon Overflow",
+    "price": "$8.99",
+    "type": "Breakfast",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "American Classic",
+    "price": "$12.99",
+    "type": "Lunch",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Quarantine Buddy",
+    "price": "$16.99",
+    "type": "Shakes",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+},
+{
+    "name": "Steak Dinner",
+    "price": "$39.99",
+    "type": "Dinner",
+    "about": "Lorem ipsum dolor sit amet consectetur. Quo debitis et quasi blanditiis fuga! Qui rerum provident molestiae quia consequuntur. Perspiciatis totam quidem iusto natus inventore?",
+    "img": "img/pancakes.jpg"
+}
+]

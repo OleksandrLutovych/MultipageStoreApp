@@ -1,0 +1,112 @@
+body {
+  margin: 150px;
+  background-color: grey;
+}
+
+.container {
+  margin: auto 200px;
+  max-width: 1200px;
+}
+
+.playground {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.packman {
+  position: absolute;
+  z-index: 1;
+  margin-left: -10px;
+}
+
+.packman::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 50px darkgoldenrod;
+  border-radius: 50%;
+  border-bottom: 50px solid transparent;
+  border-right: 50px solid transparent;
+  -webkit-animation: packman-top linear 0.6s infinite;
+          animation: packman-top linear 0.6s infinite;
+}
+
+.packman::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: 50px solid darkgoldenrod;
+  border-top: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-radius: 50%;
+  -webkit-animation: packman-bottom linear 0.6s infinite;
+          animation: packman-bottom linear 0.6s infinite;
+}
+
+@-webkit-keyframes packman-top {
+  50% {
+    transform: rotate(44.5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes packman-top {
+  50% {
+    transform: rotate(44.5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@-webkit-keyframes packman-bottom {
+  50% {
+    transform: rotate(-44.5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes packman-bottom {
+  50% {
+    transform: rotate(-44.5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.ball {
+  display: block;
+  margin-right: 100px;
+  background-color: #fff;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  -webkit-animation: movement-point 3s linear infinite;
+          animation: movement-point 3s linear infinite;
+  z-index: 0;
+}
+
+@-webkit-keyframes movement-point {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-3000%);
+  }
+}
+
+@keyframes movement-point {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-3000%);
+  }
+}/*# sourceMappingURL=style.css.map */
