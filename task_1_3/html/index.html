@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <p class="header__title">Create Account</p>
+    </header>
+    <main class="content">
+        <form action="" class="form__text label-property">
+            <label for="">First name*</label>
+            <input class="input-style" type="text" placeholder="enter your first name">
+        </form>
+
+        <form action="" class="form__text label-property">
+            <label for="">Last name</label>
+            <input class="input-style" type="text" placeholder="enter your last name">
+        </form>
+
+        <form action="" class="form__email label-property">
+            <label for="">Email*</label>
+            <input class="input-style" type="email" placeholder="enter your email">
+        </form>
+
+        <form action="" class="form__password label-property">
+            <label for="">Password*</label>
+            <input class="input-style" type="password" placeholder="enter your password">
+        </form>
+
+        <form action="" class="form__password label-property">
+            <label for="">Confirm Password*</label>
+            <input class="input-style" type="password" placeholder="enter your password again">
+        </form>
+
+        <form action="" class="form__radio-gender label-property">
+            <p>Gender:</p>
+            <div class="form__radio-gender_box">
+                <input class="input-style-gender" type="radio" name="gender" id="male">
+                <label for="male">Male</label><br>
+                <input class="input-style-gender" type="radio" name="gender" id="female">
+                <label for="female">Female</label><br>
+            </div>
+        </form>
+
+        <form action="" class="form__radio-hobbies label-property">
+            <p>Hobbies</p>
+            <div class="form__radio-hobbies_box">
+                <input class="input-style-hobbies" type="radio" name="hobbies" id="music">
+                <label for="music">Music</label>
+                <input class="input-style-hobbies" type="radio" name="hobbies" id="sports">
+                <label for="sports">Sports</label>
+                <input class="input-style-hobbies" type="radio" name="hobbies" id="travel">
+                <label for="travel">Travel</label>
+                <input class="input-style-hobbies" type="radio" name="hobbies" id="movies">
+                <label for="movies">Movies</label>
+            </div>
+        </form>
+
+        <form id="source-of-income" class="form__select label-property">
+            <label for="">Source of Income</label>
+            <select class="source-of-income__input-style" name="" id="source-of-income">
+                <option value="Employed">Employed</option>
+                <option value="Business">Business</option>
+                <option value="Stock Devidends">Stock Devidends</option>
+                <option value="Inheritance">Inheritance</option>
+            </select>
+        </form>
+
+        <form oninput="result.value=parseInt(a.value)" class="form__range label-property">
+            <label for="">Income</label>
+            <div class="income__inner">
+                <input class="oninput2" type="range" name="a" value="20">
+                <div class="colorblock">
+                    <output class="oninput1" name="result">20</output>
+                    <p class="oninput2">K</p>
+                </div>
+            </div>
+        </form>
+
+        <form action="" class="form__file-pictures label-property">
+            <label class="">Upload Profile Picture</label>
+            <input class="upload-picture__style" type="file" accept="image/png, image/jpeg">
+        </form>
+
+        <form action="" class="form__text label-property">
+            <label for="">Age</label>
+            <input class="input-style" type="text">
+        </form>
+
+        <form action="" class="bio label-property">
+            <label for="">Bio</label>
+            <textarea name="textarea" class="input-style bio__textarea-style"></textarea>
+        </form>
+
+    </main>
+    <footer class="footer">
+        <a class="footer__btn" href="#">Create</a>
+    </footer>
+</body>
+
+</html>
