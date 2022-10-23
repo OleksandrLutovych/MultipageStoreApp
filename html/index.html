@@ -1,77 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Task_1_2</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
 </head>
 
 <body>
-
-    <div class="grid-box">
-        <header class="header property">
-            <p class="header-title">Header</p>
-        </header>
-        <article class="article">
-            <p class="article-title">Main</p>
-            <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum hic modi quidem.
-                Animi aut beatae
-                corporis culpa cumque dicta inventore iste modi necessitatibus nostrum nulla odit quas sunt, tempore
-                vitae.</p>
-        </article>
+    <div class="page">
         <nav class="nav">
-            <p class="nav-title">Navigation</p>
+            <div class="nav__content">
+                <div class="content__title">
+                    <h1 class="nav__title_element">CSS Documentation</h1>
+                </div>
+                <div class="content__element-box">
+                    <a class="element" href="#inline">inline</a>
+                    <a class="element" href="#block">block</a>
+                    <a class="element" href="#contents">contents</a>
+                    <a class="element" href="#flex">flex</a>
+                    <a class="element" href="#grid">grid</a>
+                    <a class="element" href="#inline-block">inline-block</a>
+                    <a class="element" href="#inline-flex">inline-flex</a>
+                    <a class="element" href="#inline-grid">inline-grid</a>
+                    <a class="element" href="#inline-table">inline-table</a>
+                    <a class="element" href="#table">table</a>
+                    <a class="element" href="#none">none</a>
+                    <a class="element" href="#initial">initial</a>
+                    <a class="element" href="#inherit">inherit</a>
+                </div>
+            </div>
         </nav>
-        <section class="link">
-            <p class="link-title">Related Link</p>
+        <section class="section">
+            <div class="section__item">
+                <a class="item__title inline" id="inline">display: inline</a>
+                <p class="item__content">
+                    An element with a display property set to <span class="tags-decoration">inline</span> will not
+                    start on a new line and it will take up
+                    the
+                    remaining/available screen width. It just takes up the space such an element would normally take.
+                    Because of this, you can't set the <span class="tags-decoration">width</span> and <span
+                        class="tags-decoration">height</span> of an element that has a display of inline,
+                    becuase
+                    it does not take up the whole screen width. Some elements are inline by default, like <span
+                        class="tags-decoration">&ltspan&gt</span>, <span class="tags-decoration">&lta&gt</span>, <span
+                        class="tags-decoration">&lti&gt</span>, and <span class="tags-decoration">&ltimg&gt</span>;
+                <div class="item__example">
+                    <p class="item__example-teg">&ltdiv&gt</p>
+                    <p class="item__example-code">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        <span class="item__example-teg">&ltspan&gt</span> This is an inline lement <span
+                            class="item__example-teg">&lt/span&gt</span> Modi eaque debitis eos quod labore
+                        maiores delectus asperiores voluptatem voluptas soluta!
+                    </p>
+                    <p class="item__example-teg">&lt/div&gt</p>
+                </div>
+                <div class="item__example">
+                    <p class="item__example-teg">body {</p> 
+                    <p class="item__example-code">display: flex;</p>
+                    <p class="item__example-code">align-items: center;</p>
+                    <p class="item__example-code">justify-content: center;</p>
+                    <p class="item__example-code">height: 100vh;</p>
+                    <p class="item__example-code">font-size: 2rem;</p>
+                    <p class="item__example-code item__example-teg">}</p>
+                    <p class="item__example-teg">div {</p>
+                    <p class="item__example-code">max-width: 600px;</p>
+                    <p class="item__example-code item__example-teg">}</p>
+                    <p class="item__example-teg">span {</p>
+                    <p class="item__example-code">background-color: #006100;;</p>
+                    <p class="item__example-code item__example-teg">}</p>
+
+                </div>
+                <div class="item__example">
+                    <img class="item__example-img" src="../image/inline-display.png" alt="#">
+                </div>
+            </div>
+            <div class="section__item">
+                <a class="item__title block" id="block">display: block</a>
+                <p class="item__content">An element that has the display property set to block starts on a new line and
+                    takes up the available screen width. You can specify the width and height properties for such
+                    elements.
+                    Examples of elements that are at block-level by default are <span
+                        class="tags-decoration">&ltdiv&gt</span>, <span class="tags-decoration">&ltsection&gt;</span>,
+                    <span class="tags-decoration">&ltp&gt;</span>, and lots more. You can set the span from the previous
+                    HTML code to block display and it will behave like a block-level element.
+                </p>
+            </div>
+            <div class="section__item">
+                <a class="item__title contents" id="contents">display: contents</a>
+                <p class="item__content">Makes the container disappear, making the child elements children of the
+                    element the next level up in the DOM</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title flex" id="flex">display: flex</a>
+                <p class="item__content">A display of flex gives you access to the Flex layout system, which simplifies
+                    how
+                    we design and layout our web pages.</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title grid" id="grid">display: grid</a>
+                <p class="item__content">A display set to grid allows you to build layouts with the grid system, which
+                    is
+                    like an advanced form of flex.</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title inline-block" id="inline-block">display: inline-block</a>
+                <p class="item__content">Displays an element as an inline-level block container. The element itself is
+                    formatted as an inline element, but you can apply height and width values</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title inline-flex" id="inline-flex">display: inline-flex</a>
+                <p class="item__content">Displays an element as an inline-level flex container</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title inline-grid" id="inline-grid">display: inline-grid</a>
+                <p class="item__content">Displays an element as an inline-level grid container </p>
+            </div>
+            <div class="section__item">
+                <a class="item__title inline-table" id="inline-table">display: inline-table</a>
+                <p class="item__content">The element is displayed as an inline-level table</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title table" id="table">display: table</a>
+                <p class="item__content">You'll rarely use a display value of table these days, but it's still important
+                    to know. It was more useful in the past because you would use it for layouts before the advent of
+                    floats, Flex, and Grid.
+                    Setting display to table makes the element behave like a table. So you can make a replica of an HTML
+                    table without using the table element and corresponding elements such as tr and td.
+                    For example, in HTML, you can make a table with the
+                    <span class="tags-decoration">&lttable&gt</span> element and also a <span
+                        class="tags-decoration">&ltdiv&gt</span>, or any container of your choice.
+                    You make a table with the HTML <span class="tags-decoration">&lttable&gt</span> element like this:
+                </p>
+            </div>
+            <div class="section__item none">
+                <a class="item__title" id="none">display: none</a>
+                <p class="item__content">When you set the display property of an element to none, the
+                    element is
+                    completely taken off the page and it doesn’t have an effect on the layout.
+                    This also means that devices like screen readers, which make websites accessible to
+                    blind
+                    people, wont't have access to the element.
+                    Do not confuse display: none with visibility: hidden. The latter also hides the
+                    element,
+                    but
+                    leaves the space it would normally take open or empty.</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title initial" id="initial">display: initial</a>
+                <p class="item__content">This sets the display property of an element to its default
+                    value.
+                    So, if you set the display property of a span to initial, it remains inline, and if
+                    you
+                    set the same value for a div, it remains block.</p>
+            </div>
+            <div class="section__item">
+                <a class="item__title inherit" id="inherit">display: inherit</a>
+                <p class="item__content">This makes the element inherit the display property of its
+                    parent.
+                    So, if you have a <span class="tags-decoration">&ltspan&gt</span> tag inside a div and you give
+                    the span tag a display of
+                    inherit, it turns it from inline to block element.</p>
+            </div>
         </section>
-        <footer class="footer property">
-            <p class="footer-title">Footer</p>
-        </footer>
     </div>
-
-
 </body>
 
 </html>
