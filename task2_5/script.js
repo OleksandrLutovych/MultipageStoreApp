@@ -50,7 +50,11 @@ const startedWidget = () => {
   const successCallback = (position) => {
     geoLat = position.coords.latitude;
     geoLon = position.coords.longitude;
-    getApi(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=7&appid=${API_KEY}`);
+    try {getApi(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=7&appid=${API_KEY}`);}
+    catch (e) {
+        searchInfo.innerHTML = `${e}`
+    }
+    
   };
   const errorCallback = (error) => console.log(error)
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -60,6 +64,7 @@ const main = () => {
     event.preventDefault();
     localization = searchValue.value;
     console.log(`Your localization is ${localization}`);
+    try {
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${localization}&appid=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
@@ -69,7 +74,10 @@ const main = () => {
         getApi(
           `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&units=metric&cnt=7&appid=${API_KEY}`
         );
-      });
+      }).catch(e => searchInfo.innerHTML = `Incorrect city name`)} 
+      catch (e) {
+        searchInfo.innerHTML = `${e}`
+      }
   });
 };
 
