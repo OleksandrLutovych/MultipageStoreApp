@@ -11,18 +11,9 @@ let dt;
 let localization;
 let wetherCity;
 let wetherInfo;
-let date
-
-
-
-
-const successCallback = (position) => {
-  console.log(position);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+let date;
+let geoLat;
+let geoLon;
 
 const renderMain = (item) => {
   return `<div class="temperature">
@@ -31,7 +22,7 @@ const renderMain = (item) => {
 </div>
 <div class="general__info">
     <div class="weather__type">${item.list[0].weather[0].main}</div>
-    <div class="localzation">${wetherCity[0].name}, ${wetherCity[0].country}</div>
+    <div class="localzation">${item.city.name}, ${item.city.country}</div>
 </div>
 <div class="wether__icon">
     <img src="https://openweathermap.org/img/wn/${item.list[0].weather[0].icon}@2x.png" alt="Wether Icon">
@@ -40,9 +31,11 @@ const renderMain = (item) => {
 
 const renderOther = (item) => {
   return `<div class="widget__content_other-card">
-    <span class="day">${date = new Date(item.dt).toDateString()}</span>
+    <span class="day">${date = new Date(item.dt).toDateString().split(" ")[0]}</span>
     <div class="short__weather_info">
-        <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png" alt="Wether Icon">
+        <img src="https://openweathermap.org/img/wn/${
+          item.weather[0].icon
+        }@2x.png" alt="Wether Icon">
         <span class="weather__type">${item.weather[0].description}</span>
     </div>
     <div class="temperature__range">
@@ -51,7 +44,29 @@ const renderOther = (item) => {
     </div>
 </div>`;
 };
-
+const startedWidget = () => {
+    const successCallback = (position) => {
+        console.log(position);
+        geoLat = position.coords.latitude;
+        geoLon = position.coords.longitude;
+        fetch(
+            `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=5&appid=${API_KEY}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              wetherInfo = data;
+              console.log(data);
+              mainWidgetBlock.innerHTML = renderMain(wetherInfo);
+              otherWidgetBlock.innerHTML = wetherInfo.list.map(renderOther).join("");
+              searchInfo.innerHTML = `Selected: ${data.city.name}, ${data.city.country} `;
+            });
+      };
+      const errorCallback = (error) => {
+        console.log(error);
+      };
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+ 
+};
 const main = () => {
   search.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -75,12 +90,13 @@ const main = () => {
             wetherInfo = data;
             console.log(data);
             mainWidgetBlock.innerHTML = renderMain(wetherInfo);
-            otherWidgetBlock.innerHTML = wetherInfo.list.map(renderOther).join('')
+            otherWidgetBlock.innerHTML = wetherInfo.list
+              .map(renderOther)
+              .join("");
           });
       });
   });
-  
 };
 
-
+startedWidget();
 main();
