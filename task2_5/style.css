@@ -60,13 +60,16 @@ body {
 
 .widget__content_other {
   color: #fff;
-  padding: 40px 30px 1px;
+  padding: 40px 0 1px;
 }
 .widget__content_other-card {
-  margin: 30px 0;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.widget__content_other-card:hover {
+  background-color: rgb(90, 90, 144);
 }
 .widget__content_other .temperature__range {
   display: flex;
@@ -74,7 +77,7 @@ body {
 }
 
 .short__weather_info {
+  width: 200px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }/*# sourceMappingURL=style.css.map */

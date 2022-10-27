@@ -31,7 +31,9 @@ const renderMain = (item) => {
 
 const renderOther = (item) => {
   return `<div class="widget__content_other-card">
-    <span class="day">${date = new Date(item.dt).toDateString().split(" ")[0]}</span>
+    <span class="day">${(date = new Date(item.dt)
+      .toDateString()
+      .split(" ")[0])}</span>
     <div class="short__weather_info">
         <img src="https://openweathermap.org/img/wn/${
           item.weather[0].icon
@@ -45,57 +47,40 @@ const renderOther = (item) => {
 </div>`;
 };
 const startedWidget = () => {
-    const successCallback = (position) => {
-        console.log(position);
-        geoLat = position.coords.latitude;
-        geoLon = position.coords.longitude;
-        fetch(
-            `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=5&appid=${API_KEY}`
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              wetherInfo = data;
-              console.log(data);
-              mainWidgetBlock.innerHTML = renderMain(wetherInfo);
-              otherWidgetBlock.innerHTML = wetherInfo.list.map(renderOther).join("");
-              searchInfo.innerHTML = `Selected: ${data.city.name}, ${data.city.country} `;
-            });
-      };
-      const errorCallback = (error) => {
-        console.log(error);
-      };
-      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
- 
+  const successCallback = (position) => {
+    geoLat = position.coords.latitude;
+    geoLon = position.coords.longitude;
+    getApi(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=5&appid=${API_KEY}`);
+  };
+  const errorCallback = (error) => console.log(error)
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 };
 const main = () => {
   search.addEventListener("submit", (event) => {
     event.preventDefault();
     localization = searchValue.value;
     console.log(`Your localization is ${localization}`);
-    fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${localization}&appid=${API_KEY}`
-    )
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${localization}&appid=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
-        wetherCity = data;
-        console.log(data);
         searchInfo.innerHTML = `Selected: ${localization}, ${data[0].name}, ${data[0].country} `;
         lat = data[0].lat;
         lon = data[0].lon;
-        fetch(
+        getApi(
           `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&units=metric&cnt=5&appid=${API_KEY}`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            wetherInfo = data;
-            console.log(data);
-            mainWidgetBlock.innerHTML = renderMain(wetherInfo);
-            otherWidgetBlock.innerHTML = wetherInfo.list
-              .map(renderOther)
-              .join("");
-          });
+        );
       });
   });
+};
+
+const getApi = (url) => {
+  return fetch(url)
+    .then((response) => response.json())
+    .then((wetherInfo) => {
+      mainWidgetBlock.innerHTML = renderMain(wetherInfo);
+      otherWidgetBlock.innerHTML = wetherInfo.list.map(renderOther).join("");
+      searchInfo.innerHTML = `Selected: ${wetherInfo.city.name}, ${wetherInfo.city.country} `;
+    });
 };
 
 startedWidget();
