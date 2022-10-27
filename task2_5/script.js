@@ -50,7 +50,7 @@ const startedWidget = () => {
   const successCallback = (position) => {
     geoLat = position.coords.latitude;
     geoLon = position.coords.longitude;
-    getApi(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=5&appid=${API_KEY}`);
+    getApi(`https://api.openweathermap.org/data/2.5/forecast/daily?lat=${geoLat}&lon=${geoLon}&units=metric&cnt=7&appid=${API_KEY}`);
   };
   const errorCallback = (error) => console.log(error)
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -67,7 +67,7 @@ const main = () => {
         lat = data[0].lat;
         lon = data[0].lon;
         getApi(
-          `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&units=metric&cnt=5&appid=${API_KEY}`
+          `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&units=metric&cnt=7&appid=${API_KEY}`
         );
       });
   });
@@ -78,7 +78,7 @@ const getApi = (url) => {
     .then((response) => response.json())
     .then((wetherInfo) => {
       mainWidgetBlock.innerHTML = renderMain(wetherInfo);
-      otherWidgetBlock.innerHTML = wetherInfo.list.map(renderOther).join("");
+      otherWidgetBlock.innerHTML = wetherInfo.list.slice(1).map(renderOther).join("");
       searchInfo.innerHTML = `Selected: ${wetherInfo.city.name}, ${wetherInfo.city.country} `;
     });
 };
