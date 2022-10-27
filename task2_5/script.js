@@ -31,7 +31,7 @@ const renderMain = (item) => {
 
 const renderOther = (item) => {
   return `<div class="widget__content_other-card">
-    <span class="day">${(date = new Date(item.dt)
+    <span class="day">${(date = new Date(item.dt*1000)
       .toDateString()
       .split(" ")[0])}</span>
     <div class="short__weather_info">
