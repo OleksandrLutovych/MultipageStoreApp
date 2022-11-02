@@ -1,4 +1,2 @@
-package-lock.json
-package.json
 .gitignore
-node_modules
+style.css.map
