@@ -2,17 +2,17 @@ const form = document.getElementById("form");
 const submit = document.getElementById("submit");
 const todoContent = document.getElementById("todo-content");
 const clearAll = document.getElementById("clear-all");
-const todoBox = document.getElementById("todo-container");
+const todoBox = document.querySelector("#todo-container");
 const input = document.getElementById("input");
 let date = new Date(Date.now() + 86400e3).toUTCString();
 let number;
 let cookieArr = document.cookie.split(";");
-
-const toHTML = (item) => {
+console.log(cookieArr.length)
+const toHTML = (item, index) => {
   return `<div class="todo-element__box">
-    <label class="todo-element__box_content" id="todo-content">${item}</label>
+    <label class="todo-element__box_content" id="todo-content" >${item}</label>
     <input type="checkbox">
-    <a href="" id="clear-todo">&#10007;</a>
+    <a href="" class="clear-todo" data-action="${index}">&#10007;</a>
 </div>`;
 };
 
@@ -48,28 +48,35 @@ function deleteCookie(name) {
 function addTask() {
   if (document.cookie === "" || document.cookie === null) number = 0;
   else {
-    number = +cookieArr[cookieArr.length - 1].trim().split("")[0] + 1
+    number = +cookieArr[cookieArr.length].trim().split("")[0];
   }
   console.log(number);
   form.addEventListener("submit", () => {
     if (input.value) {
       setCookie(number, input.value);
-      number++;
+      number = number + 1;
       renderElement();
     }
   });
 }
 function renderElement() {
-  todoBox.innerHTML = cookieArr
-    .map((e, index) => {
-      return toHTML(getCookie(`${index}`));
-    })
-    .join("");
-const clearTodo = document.getElementById("clear-todo");
-clearTodo.addEventListener("click", () => {
-    deleteCookie('1');
-});
+  if (document.cookie === "" || document.cookie === null) {
+    todoBox.innerHTML = toHTML("add your new task...");
+  } else {
+    todoBox.innerHTML = cookieArr
+      .map((e, index) => {
+        todoBox && todoBox.addEventListener("click", btnHandler);
+        return toHTML(getCookie(`${index}`), index);
+      })
+      .join("");
+  }
 }
-
+const btnHandler = (e) => {
+    const btn = e.target;
+    console.log(btn.dataset.action);
+    if (btn.tagName === "A") {
+      deleteCookie(`${btn.dataset.action}`);
+    }
+  };
 addTask();
 renderElement();
