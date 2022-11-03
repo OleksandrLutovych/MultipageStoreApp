@@ -48,7 +48,7 @@ function deleteCookie(name) {
 function addTask() {
   if (document.cookie === "" || document.cookie === null) number = 0;
   else {
-    number = +cookieArr[cookieArr.length].trim().split("")[0];
+    number = +cookieArr[cookieArr.length-1].trim().split("")[0];
   }
   console.log(number);
   form.addEventListener("submit", () => {
