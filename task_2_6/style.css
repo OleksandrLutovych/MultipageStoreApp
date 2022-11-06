@@ -30,7 +30,7 @@ h3 {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   background-color: rgb(197, 206, 255);
-  padding: 5px 20px;
+  padding: 5px 5px;
   border: none;
   cursor: pointer;
 }
@@ -51,6 +51,10 @@ h3 {
 }
 .todo-element__box:hover {
   background-color: rgb(204, 204, 204);
+}
+.todo-element__box .btn__edit {
+  margin-right: 10px;
+  font-size: 12px;
 }
 
 #clear-all {
