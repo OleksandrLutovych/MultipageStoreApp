@@ -1,18 +1,18 @@
-const todoWrapper = document.querySelector(".todo__wrapper");
 const form = document.forms.form;
-const submit = document.getElementById("submit");
 const clearAll = document.getElementById("clear-all");
 const todoBox = document.querySelector("#todo-container");
 const input = document.getElementById("input");
-const edit = document.getElementById("edit");
+const editBtn = document.getElementById("edit");
+
+let todoId;
+let isTodoTarget = false;
 let expiresDate = new Date(Date.now() + 86400e3).toUTCString();
 let cookieArr = document.cookie.split("; ");
-edit.setAttribute("disabled", "");
 
 const toHTML = (content, id) => {
   return `<form class="todo-element__box" id="${id}">
     <label class="todo-element__box_content" id="${id}">${content}</label>
-    <a href="" class="clear-todo">&#10007;</a>
+    <button class="clear-todo">&#10007</button>
 </form>`;
 };
 
@@ -31,14 +31,21 @@ function deleteCookie(name) {
 }
 
 //------------------------- Main funcs
+check();
+form.addEventListener("submit", addTodo);
+todoBox.addEventListener("click", todoItemHandle);
+clearAll.addEventListener("click", deleteAll);
+editBtn.addEventListener("click", editTodo);
 
 function addTodo(e) {
   e.preventDefault();
-  if (input.value && input.value.trim() !== "") {
+  if (input.value.trim()) {
+    const todoContent = input.value;
     let cookieId = new Date().getMilliseconds();
-    setCookie("todo" + cookieId, input.value);
-    renderElement("todo" + cookieId, input.value);
-    input.value = null;
+
+    setCookie("todo" + cookieId, todoContent);
+    renderElement("todo" + cookieId, todoContent);
+    input.value = "";
   }
 }
 
@@ -62,32 +69,34 @@ function check() {
 }
 
 function todoItemHandle(e) {
-  e.preventDefault();
   const btn = e.target;
   const item = btn.closest(".todo-element__box");
-  const editBtn = btn.closest("#edit");
+  let todo;
 
-  if (btn.tagName === "A" && item) {
+  if (btn.className === "clear-todo" && item) {
+    e.preventDefault();
     deleteItem(item);
   }
+
   if (btn.tagName === "LABEL" && item) {
     const todoText = item.querySelector("label");
     input.value = todoText.innerHTML;
-    edit.disabled = false;
-  }
-  if (editBtn) {
-    editTodo(todoText);
+    todoId = todoText.id;
+    console.log(todoId);
+    isTodoTarget = true;
   }
 }
 
-function editTodo(item) {
-  if (input.value && input.value.trim() !== "") {
-    setCookie(item.id, input.value);
-    item.innerHTML = input.value;
-    form.reset();
-  } else if (input.value.trim() == "") {
-    deleteItem(item);
-    edit.setAttribute("disabled", "");
+function editTodo(e) {
+  if (input.value.trim() && isTodoTarget) {
+    const todoText = document.getElementById(`${todoId}`)
+    setCookie(todoId, input.value);
+    todoText.innerHTML = toHTML(input.value, todoId)
+    isTodoTarget = false;
+  } else if (input.value.trim() == "" && isTodoTarget) {
+    deleteCookie(todoId);
+  } else {
+    return;
   }
 }
 
@@ -98,19 +107,9 @@ function deleteItem(item) {
 }
 
 function deleteAll(e) {
-  e.preventDefault();
   cookieArr.forEach((item) => {
     const todoName = item.split("=")[0];
     deleteCookie(todoName);
   });
   todoBox.innerHTML = "";
 }
-
-function main() {
-  check();
-  todoWrapper.addEventListener("click", todoItemHandle);
-  form.addEventListener("submit", addTodo);
-  clearAll.addEventListener("click", deleteAll);
-}
-
-main();

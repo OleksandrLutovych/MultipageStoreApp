@@ -17,23 +17,6 @@ h3 {
 .form {
   display: flex;
 }
-.form input {
-  background-color: rgb(238, 235, 255);
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
-  border: none;
-  width: 100%;
-  padding: 5px 10px;
-  outline: none;
-}
-.form button {
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  background-color: rgb(197, 206, 255);
-  padding: 5px 5px;
-  border: none;
-  cursor: pointer;
-}
 
 .todo-element__box {
   display: flex;
