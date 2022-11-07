@@ -88,14 +88,15 @@ function todoItemHandle(e) {
 }
 editBtn.addEventListener("click", editTodo);
 function editTodo(e) {
+  const todoText = document.getElementById(`${todoId}`);
   if (input.value.trim() && isTodoTarget) {
-    const todoText = document.getElementById(`${todoId}`);
     setCookie(todoId, input.value);
     todoText.innerHTML = toHTML(input.value, todoId);
     isTodoTarget = false;
     input.value = "";
   } else if (input.value.trim() == "" && isTodoTarget) {
     deleteCookie(todoId);
+    todoText.remove()
   } else {
     return;
   }
