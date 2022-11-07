@@ -10,10 +10,10 @@ let expiresDate = new Date(Date.now() + 86400e3).toUTCString();
 let cookieArr = document.cookie.split("; ");
 
 const toHTML = (content, id) => {
-  return `<form class="todo-element__box" id="${id}">
-    <label class="todo-element__box_content" id="${id}">${content}</label>
+  return `<div class="todo-element__box" id="${id}">
+    <span class="todo-element__box_content" id="${id}">${content}</span>
     <button class="clear-todo">&#10007</button>
-</form>`;
+</div>`;
 };
 
 //------------------------- Cookie funcs
@@ -78,15 +78,15 @@ function todoItemHandle(e) {
     deleteItem(item);
   }
 
-  if (btn.tagName === "LABEL" && item) {
-    const todoText = item.querySelector("label");
+  if (btn.tagName === "SPAN" && item) {
+    const todoText = item.querySelector("span");
     input.value = todoText.innerHTML;
     todoId = todoText.id;
     console.log(todoId);
     isTodoTarget = true;
   }
 }
-
+editBtn.addEventListener("click", editTodo);
 function editTodo(e) {
   if (input.value.trim() && isTodoTarget) {
     const todoText = document.getElementById(`${todoId}`);
