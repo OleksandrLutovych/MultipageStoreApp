@@ -89,10 +89,11 @@ function todoItemHandle(e) {
 
 function editTodo(e) {
   if (input.value.trim() && isTodoTarget) {
-    const todoText = document.getElementById(`${todoId}`)
+    const todoText = document.getElementById(`${todoId}`);
     setCookie(todoId, input.value);
-    todoText.innerHTML = toHTML(input.value, todoId)
+    todoText.innerHTML = toHTML(input.value, todoId);
     isTodoTarget = false;
+    input.value = "";
   } else if (input.value.trim() == "" && isTodoTarget) {
     deleteCookie(todoId);
   } else {
