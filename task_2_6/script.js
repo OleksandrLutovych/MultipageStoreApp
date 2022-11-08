@@ -91,10 +91,12 @@ function editTodo(e) {
   const todoText = document.getElementById(`${todoId}`);
   if (input.value.trim() && isTodoTarget) {
     setCookie(todoId, input.value);
-    todoText.innerHTML = toHTML(input.value, todoId);
+    todoText.innerHTML = `<span class="todo-element__box_content" id="${todoId}">${input.value}</span>
+    <button class="clear-todo">&#10007</button>`;
     isTodoTarget = false;
     input.value = "";
   } else if (input.value.trim() == "" && isTodoTarget) {
+    
     deleteCookie(todoId);
     todoText.remove()
   } else {
