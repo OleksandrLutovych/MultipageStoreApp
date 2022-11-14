@@ -7,7 +7,7 @@ let expiresDate = new Date(Date.now() + 86400e3).toUTCString();
 let cookieArr = document.cookie.split("; ");
 
 const toHTML = (content, id) => {
-  return `<div class="todo-element__box">
+  return `<div class="todo-element__box" id="${id}">
     <span class="todo-element__box_content" id="${id}">${content}</span>
     <button class="edit-todo">Edit</button>
     <button class="clear-todo">&#10007</button>
@@ -68,7 +68,7 @@ function check() {
 function todoItemHandle(e) {
   const btn = e.target;
   const item = btn.closest(".todo-element__box");
-  let todo;
+
   if (btn.className === "clear-todo" && item) {
     e.preventDefault();
     deleteItem(item);
