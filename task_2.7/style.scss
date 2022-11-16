@@ -1,21 +1,85 @@
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(245, 245, 245);
 }
 header {
-    background-color: #fff;
+  background-color: #fff;
 }
 .container {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header__wrapper {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 20px 0;
+  button {
+    background-color: #fff;
+    border: none;
+    border-radius: 20%;
+    &:active {
+      background-color: rgb(243, 243, 243);
+    }
+  }
+}
+
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+  input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 3px 8px -1px rgb(200, 200, 204);
+    width: 300px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  select {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 3px 8px -1px rgb(200, 200, 204);
+    padding: 10px 15px;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
+.content__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-auto-flow: row;
     justify-content: space-between;
-    margin: 20px 0;
+    column-gap: 20px;
+    .country__card {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        margin: 20px 0;
+        img {
+            width: 250px;
+        }
+        .country {
+            margin: 20px;
+            font-size: 1.2rem;
+        }
+        p {
+            margin: 3px 20px;
+        }
+        span {
+            font-weight: bold;
+        }
+    }
 }
