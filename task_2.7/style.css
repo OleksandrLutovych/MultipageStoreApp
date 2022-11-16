@@ -1,0 +1,23 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}/*# sourceMappingURL=style.css.map */
