@@ -1,5 +1,5 @@
 const changeModeBtn = document.getElementById("darkmode");
-const form = document.querySelector(".main__header");
+const form = document.forms.form;
 const search = document.querySelector("input");
 const regionSelect = document.getElementById("region-select");
 const contentBox = document.querySelector(".content__wrapper");
@@ -19,14 +19,7 @@ const renderCountry = (country) => {
 
 function allCountries() {
   apiData.then((countries) => {
-    countries.map((item) => {
-      if (!search.value.trim()) {
-        contentBox.innerHTML += renderCountry(item);
-      } else {
-        let result = search.value;
-        contentBox.innerHTML += result;
-      }
-    });
+    contentBox.innerHTML = countries.map(renderCountry).join("");
   });
 }
 
@@ -37,19 +30,31 @@ function searchCountries(e) {
   apiData.then((countries) => {
     contentBox.innerHTML = countries
       .map((item) => {
-        if (item.name.common.toLowerCase().startsWith(result.trim())) {
+        if (
+          item.name.common.toLowerCase().startsWith(result.trim()) &&
+          item.region === regionSelect.value
+        ) {
           return renderCountry(item);
         }
       })
       .join("");
-    if (!search.value.trim()) {
+    if (!result.trim()) {
       contentBox.innerHTML = countries.map(renderCountry).join("");
+    }
+    if (regionSelect.value === "All") {
+      contentBox.innerHTML = countries
+        .map((item) => {
+          if (item.name.common.toLowerCase().startsWith(result.trim()))
+            return renderCountry(item);
+        })
+        .join("");
     }
   });
 }
 
 function filterCountries(e) {
   const type = regionSelect.value;
+
   apiData.then((countries) => {
     contentBox.innerHTML = countries
       .map((item) => {
