@@ -5,7 +5,9 @@ const regionSelect = document.getElementById("region-select");
 const contentBox = document.querySelector(".content__wrapper");
 const API = "https://restcountries.com/v3.1/all";
 
-const apiData = fetch(API).then((response) => response.json());
+const apiData = fetch(API)
+  .then((response) => response.json())
+  .then((data) => data);
 
 const renderCountry = (country) => {
   return `<div class="country__card">
@@ -19,7 +21,9 @@ const renderCountry = (country) => {
 
 function allCountries() {
   apiData.then((countries) => {
-    contentBox.innerHTML = countries.map(renderCountry).join("");
+    contentBox.innerHTML = countries
+      .map((item) => renderCountry(item))
+      .join("");
   });
 }
 
@@ -69,6 +73,24 @@ function filterCountries(e) {
   });
 }
 
+function preloading(e) {
+  const loader = document.querySelector(".preloader");
+  window.onload = async function () {
+    await apiData;
+    const img = document.querySelectorAll("img");
+    let i = 0;
+    img.forEach((item) => {
+      item.onload = () => {
+        i++;
+        if (i === img.length) {
+          loader.style.display = "none";
+        }
+      };
+    });
+  };
+}
+
+document.addEventListener("DOMContentLoaded", preloading);
 allCountries();
 regionSelect.addEventListener("change", filterCountries);
 search.addEventListener("keyup", searchCountries);

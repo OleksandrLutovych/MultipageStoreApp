@@ -6,11 +6,12 @@
   padding: 0;
 }
 body {
-  transition: .3s;
+  transition: 0.3s;
   background-color: rgb(245, 245, 245);
+  position: relative;
 }
 .dark-mode {
-  transition: .3s;
+  transition: 0.3s;
   background-color: rgb(41, 41, 41);
   color: #fff;
   span {
@@ -108,3 +109,5 @@ header {
     }
   }
 }
+
+
