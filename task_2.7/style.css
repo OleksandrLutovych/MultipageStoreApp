@@ -7,7 +7,31 @@
 }
 
 body {
+  transition: 0.3s;
   background-color: rgb(245, 245, 245);
+}
+
+.dark-mode {
+  transition: 0.3s;
+  background-color: rgb(41, 41, 41);
+  color: #fff;
+}
+.dark-mode span {
+  color: #fff;
+}
+.dark-mode header {
+  background-color: rgb(78, 78, 78);
+}
+.dark-mode .light {
+  display: none;
+}
+.dark-mode .dark {
+  display: inline;
+  color: #fff;
+}
+
+.dark {
+  display: none;
 }
 
 header {
@@ -27,12 +51,13 @@ header {
   padding: 20px 0;
 }
 .header__wrapper button {
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   border-radius: 20%;
+  cursor: pointer;
 }
 .header__wrapper button:active {
-  background-color: rgb(243, 243, 243);
+  background-color: rgba(243, 243, 243, 0.192);
 }
 
 .main__header {
@@ -76,6 +101,7 @@ header {
 }
 .content__wrapper .country__card img {
   width: 250px;
+  height: 150px;
 }
 .content__wrapper .country__card .country {
   margin: 20px;

@@ -6,8 +6,31 @@
   padding: 0;
 }
 body {
+  transition: .3s;
   background-color: rgb(245, 245, 245);
 }
+.dark-mode {
+  transition: .3s;
+  background-color: rgb(41, 41, 41);
+  color: #fff;
+  span {
+    color: #fff;
+  }
+  header {
+    background-color: rgb(78, 78, 78);
+  }
+  .light {
+    display: none;
+  }
+  .dark {
+    display: inline;
+    color: #fff;
+  }
+}
+.dark {
+  display: none;
+}
+
 header {
   background-color: #fff;
 }
@@ -23,11 +46,12 @@ header {
   margin: 20px 0;
   padding: 20px 0;
   button {
-    background-color: #fff;
+    background-color: transparent;
     border: none;
     border-radius: 20%;
+    cursor: pointer;
     &:active {
-      background-color: rgb(243, 243, 243);
+      background-color: rgba(243, 243, 243, 0.192);
     }
   }
 }
@@ -58,28 +82,29 @@ header {
 }
 
 .content__wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 250px);
-    grid-auto-flow: row;
-    justify-content: space-between;
-    column-gap: 20px;
-    .country__card {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        margin: 20px 0;
-        img {
-            width: 250px;
-        }
-        .country {
-            margin: 20px;
-            font-size: 1.2rem;
-        }
-        p {
-            margin: 3px 20px;
-        }
-        span {
-            font-weight: bold;
-        }
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-auto-flow: row;
+  justify-content: space-between;
+  column-gap: 20px;
+  .country__card {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 20px 0;
+    img {
+      width: 250px;
+      height: 150px;
     }
+    .country {
+      margin: 20px;
+      font-size: 1.2rem;
+    }
+    p {
+      margin: 3px 20px;
+    }
+    span {
+      font-weight: bold;
+    }
+  }
 }
