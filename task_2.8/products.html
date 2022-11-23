@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/task_2.8/main-style.css">
+    <link rel="stylesheet" href="products-style.css">
     <title>Document</title>
 </head>
 
@@ -21,7 +21,7 @@
                         <li><a href="">About</a></li>
                     </ul>
                     <div class="logo">
-                        <a href="">comfy</a>
+                        <a href="http://127.0.0.1:5500/task_2.8/main.html">comfy</a>
                     </div>
                     <div class="shop__card">
                         <a href="">
@@ -33,17 +33,28 @@
 
             </nav>
             <div class="header__content">
-                <h1>Rest, Relax, Unwind</h1>
-                <span>Embrace your choise - we do</span>
-                <button>show now</button>
+                <span>Home / Products</span>
             </div>
         </div>
     </header>
     <main>
         <div class="container">
-            <div class="main-content__wrapper">
-                <h2>/Featured</h2>
-                <div class="cards__wrapper">
+            <div class="shop__wrapper">
+                <div class="users__bar">
+                    <input type="search" placeholder="Search...">
+                    <span>Company</span>
+                    <ul>
+                        <li><a href="">All</a></li>
+                        <li><a href="">Ikea</a></li>
+                        <li><a href="">Marcos</a></li>
+                        <li><a href="">Caressa</a></li>
+                        <li><a href="">Liddy</a></li>
+                    </ul>
+                    <span>Price</span>
+                    <input type="range" id="price" min="0" max="80">
+                    <p>Value: </p>
+                </div>
+                <div class="products__box">
                     <a href="" class="product__card">
                         <img src="image/main-image.jpg" alt="">
                         <span class="product__card_name">Lorem</span>
@@ -57,17 +68,23 @@
                     <a href="" class="product__card">
                         <img src="image/main-image.jpg" alt="">
                         <span class="product__card_name">Lorem</span>
+                        <span class="product__card_price">$19</span>
+                    </a>
+                    <a href="" class="product__card">
+                        <img src="image/main-image.jpg" alt="">
+                        <span class="product__card_name">Lorem</span>
+                        <span class="product__card_price">$19</span>
+                    </a>
+                    <a href="" class="product__card">
+                        <img src="image/main-image.jpg alt="">
+                        <span class=" product__card_name">Lorem</span>
                         <span class="product__card_price">$19</span>
                     </a>
                 </div>
-                <button>all products</button>
             </div>
         </div>
     </main>
-
-
-
-    <script src="script.js"></script>
+    </div>
 </body>
 
 </html>
