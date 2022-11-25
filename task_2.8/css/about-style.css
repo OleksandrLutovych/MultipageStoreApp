@@ -62,54 +62,17 @@ header::before {
   padding-top: 50px;
 }
 
-.products__box {
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
-  grid-template-rows: auto;
-  gap: 15px;
-}
-.products__box .product__card {
+.main-content__wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.products__box .product__card_price {
-  font-weight: bold;
+.main-content__wrapper h2 {
+  font-size: 2.5rem;
+  margin: 30px 0;
 }
-.products__box .product__card img {
-  width: 300px;
-  border-radius: 5px;
-}
-
-.users__bar {
-  margin-right: 5px;
-  display: flex;
-  flex-direction: column;
-}
-.users__bar input[type=search] {
-  border: none;
-  background-color: aliceblue;
-  padding: 10px 10px;
-  border-radius: 5px;
-  outline: none;
-  margin-bottom: 20px;
-}
-.users__bar ul {
-  list-style: none;
-}
-.users__bar ul li {
-  padding: 5px 0;
-}
-.users__bar a {
-  text-decoration: none;
-  color: #000;
-  opacity: 0.7;
-}
-.users__bar a:hover {
-  text-decoration: underline;
-}
-.users__bar span {
-  margin-top: 10px;
-  font-weight: bold;
+.main-content__wrapper p {
   font-size: 1.1rem;
-}/*# sourceMappingURL=products-style.css.map */
+  line-height: 1.8rem;
+  color: rgb(110, 110, 172);
+}/*# sourceMappingURL=about-style.css.map */

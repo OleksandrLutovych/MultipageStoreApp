@@ -60,6 +60,7 @@ header::before {
     grid-template-columns: repeat(3, 300px);
     grid-template-rows: auto;
     gap: 15px;
+    margin-bottom: 50px;
     .product__card{
         display: flex;
         flex-direction: column;
@@ -89,6 +90,11 @@ header::before {
       list-style: none;
       li {
         padding: 5px 0;
+        .number-of-element{
+          font-weight: 400;
+          opacity: .7;
+          float: right;
+        }
       }
     }
     a {
@@ -101,7 +107,6 @@ header::before {
       
     }
     span {
-      margin-top: 10px;
       font-weight: bold;
       font-size: 1.1rem;
     }
