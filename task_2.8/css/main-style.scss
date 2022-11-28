@@ -89,16 +89,27 @@ header {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 50px;
+    flex-wrap: wrap;
     .product__card {
-      display: flex;
+      color: black;
+      text-decoration: none;
+      display: none;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 10px;
+      &_name {
+        opacity: 0.6;
+        margin-bottom: 5px;
+      }
       &_price {
         font-weight: bold;
       }
       img {
         width: 350px;
       }
+    }
+    .product__card:nth-child(-n+3) {
+      display: flex;
     }
   }
   button {
@@ -113,13 +124,13 @@ header {
 }
 
 .shopping-card {
+  display: none;
   position: fixed;
   width: 300px;
   background-color: #fff;
   top: 0;
   right: 0;
   bottom: 0;
-  display: none;
   flex-direction: column;
   animation: shoppCard 1s;
   .close {
@@ -205,6 +216,10 @@ header {
     margin-right: 0px;
   }
 }
-.hide {
+// .show {
+//   display: flex;
+// }
+.show {
   display: flex;
 }
+

@@ -1,73 +1,73 @@
 [
     {
         "name": "High-Back Bench",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Ikea",
         "price": "9.99"
     },
     {
         "name": "Albany Table",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Ikea",
         "price": "79.99"
     },
     {
         "name": "Accent Chair",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Ikea",
         "price": "25.99"
     },
     {
         "name": "Wooden Table",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Marcos",
         "price": "45.99"
     },
     {
         "name": "Dining Table",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Marcos",
         "price": "6.99"
     },
     {
         "name": "Sofa Set",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Marcos",
         "price": "69.99"
     },
     {
         "name": "Modern Bookshelf",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Caressa",
         "price": "8.99"
     },
     {
         "name": "Emperor Bed",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Caressa",
         "price": "21.99"
     },
     {
         "name": "Utopia Sofa",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Caressa",
         "price": "39.99"
     },
     {
         "name": "Entertaiment Center",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Liddy",
         "price": "29.99"
     },
     {
         "name": "Albany Sectional",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Liddy",
         "price": "9.99"
     },
     {
         "name": "Leather Sofa",
-        "image": "image/image.jpg",
+        "image": "/task_2.8/image/main-image.jpg",
         "type": "Liddy",
         "price": "9.99"
     }

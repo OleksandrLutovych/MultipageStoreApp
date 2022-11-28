@@ -16,12 +16,12 @@
             <nav>
                 <div class="nav__wrapper">
                     <ul class="menu">
-                        <li><a href="http://127.0.0.1:5500/task_2.8/html/main.html">Home</a></li>
-                        <li><a href="http://127.0.0.1:5500/task_2.8/html/products.html">Products</a></li>
-                        <li><a href="http://127.0.0.1:5500/task_2.8/html/about.html">About</a></li>
+                        <li><a href="/task_2.8/html/main.html">Home</a></li>
+                        <li><a href="/task_2.8/html/products.html">Products</a></li>
+                        <li><a href="/task_2.8/html/about.html">About</a></li>
                     </ul>
                     <div class="logo">
-                        <a href="http://127.0.0.1:5500/task_2.8/html/main.html">comfy</a>
+                        <a href="/task_2.8/html/main.html">comfy</a>
                     </div>
                     <a href="" class="fa fa-shopping-cart"><span class="counter">1</span></a>
                 </div>
@@ -36,50 +36,27 @@
         <div class="container">
             <div class="shop__wrapper">
                 <div class="users__bar">
-                    <input type="search" placeholder="Search...">
+                    <input type="search" placeholder="Search..." id="search-bar">
                     <span>Company</span>
-                    <ul>
-                        <li><a href="">All <span class="number-of-element">2</span></a></li>
-                        <li><a href="">Ikea <span class="number-of-element">2</span></a></li>
-                        <li><a href="">Marcos <span class="number-of-element">2</span></a></li>
-                        <li><a href="">Caressa <span class="number-of-element">2</span></a></li>
-                        <li><a href="">Liddy <span class="number-of-element">2</span></a></li>
+                    <ul class="company-name-box">
+                        <li><button>All</button><span class="number-of-element">2</span></li>
+                        <li><button>Ikea</button><span class="number-of-element">2</span></li>
+                        <li><button>Marcos</button><span class="number-of-element">2</span></li>
+                        <li><button>Caressa</button><span class="number-of-element">2</span></li>
+                        <li><button>Liddy</button><span class="number-of-element">2</span></li>
                     </ul>
                     <span>Price</span>
                     <input type="range" id="price" min="0" max="80">
-                    <p>Value: </p>
+                    <span>Value: <output id="price-value" ></output>$</span>
                 </div>
                 <div class="products__box">
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class=" product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
                 </div>
             </div>
         </div>
     </main>
     </div>
+
+    <script src="/task_2.8/script.js"></script>
 </body>
 
 </html>

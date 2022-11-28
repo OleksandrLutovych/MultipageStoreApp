@@ -17,12 +17,12 @@
             <nav>
                 <div class="nav__wrapper">
                     <ul class="menu">
-                        <li><a href="http://127.0.0.1:5500/task_2.8/html/main.html">Home</a></li>
-                        <li><a href="http://127.0.0.1:5500/task_2.8/html/products.html">Products</a></li>
-                        <li><a href="http://127.0.0.1:5500/task_2.8/html/about.html">About</a></li>
+                        <li><a href="/task_2.8/html/main.html">Home</a></li>
+                        <li><a href="/task_2.8/html/products.html">Products</a></li>
+                        <li><a href="/task_2.8/html/about.html">About</a></li>
                     </ul>
                     <div class="logo">
-                        <a href="http://127.0.0.1:5500/task_2.8/html/main.html">comfy</a>
+                        <a href="/task_2.8/html/main.html">comfy</a>
                     </div>
                     <a href="" class="fa fa-shopping-cart"><span class="counter">1</span></a>
                 </div>
@@ -31,7 +31,7 @@
             <div class="header__content">
                 <h1>Rest, Relax, Unwind</h1>
                 <span>Embrace your choise - we do</span>
-                <a href="http://127.0.0.1:5500/task_2.8/html/products.html">show now</a>
+                <a href="/task_2.8/html/products.html">show now</a>
             </div>
         </div>
     </header>
@@ -40,25 +40,13 @@
             <div class="main-content__wrapper">
                 <h2>/Featured</h2>
                 <div class="cards__wrapper">
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
-                    <a href="" class="product__card">
-                        <img src="/task_2.8/image/main-image.jpg" alt="">
-                        <span class="product__card_name">Lorem</span>
-                        <span class="product__card_price">$19</span>
-                    </a>
+                    
                 </div>
-                <button>all products</button>
+                <button id="all-products">all products</button>
             </div>
         </div>
+
+
         <div class="shopping-card" id="shopping-card">
             <button class="close">&#10006;</button>
             <span class="title">Your Bag</span>
@@ -91,7 +79,6 @@
             <div class="shopping-card__footer">
                 <button>Checkout</button>
                 <span class="title">Total: $<span id="shopping-card__total">1</span></span>
-
             </div>
         </div>
     </main>

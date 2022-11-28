@@ -1,0 +1,7 @@
+node_modules
+task_2.8/css/main-style.css.map
+task_2.8/css/products-style.css.map
+package-lock.json
+package.json
+tsconfig.json
+

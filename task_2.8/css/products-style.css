@@ -71,8 +71,14 @@ header::before {
 }
 .products__box .product__card {
   display: flex;
+  color: black;
+  text-decoration: none;
   flex-direction: column;
   align-items: center;
+}
+.products__box .product__card_name {
+  opacity: 0.6;
+  margin-bottom: 5px;
 }
 .products__box .product__card_price {
   font-weight: bold;
@@ -100,6 +106,14 @@ header::before {
 }
 .users__bar ul li {
   padding: 5px 0;
+}
+.users__bar ul li button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.users__bar ul li button:hover {
+  text-decoration: underline;
 }
 .users__bar ul li .number-of-element {
   font-weight: 400;
