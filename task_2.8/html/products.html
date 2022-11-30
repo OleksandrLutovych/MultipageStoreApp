@@ -23,7 +23,7 @@
                     <div class="logo">
                         <a href="/task_2.8/html/main.html">comfy</a>
                     </div>
-                    <a href="" class="fa fa-shopping-cart"><span class="counter">1</span></a>
+                    <a href="" class="fa fa-shopping-cart" id="basket"><span class="counter">1</span></a>
                 </div>
 
             </nav>
@@ -35,26 +35,60 @@
     <main>
         <div class="container">
             <div class="shop__wrapper">
-                <div class="users__bar">
+                <form class="users__bar" name="products-form">
                     <input type="search" placeholder="Search..." id="search-bar">
                     <span>Company</span>
                     <ul class="company-name-box">
-                        <li><button>All</button><span class="number-of-element">2</span></li>
-                        <li><button>Ikea</button><span class="number-of-element">2</span></li>
-                        <li><button>Marcos</button><span class="number-of-element">2</span></li>
-                        <li><button>Caressa</button><span class="number-of-element">2</span></li>
-                        <li><button>Liddy</button><span class="number-of-element">2</span></li>
+                        <li><button>All</button><span class="number-of-element"></span></li>
+                        <li><button>Ikea</button><span class="number-of-element"></span></li>
+                        <li><button>Marcos</button><span class="number-of-element"></span></li>
+                        <li><button>Caressa</button><span class="number-of-element"></span></li>
+                        <li><button>Liddy</button><span class="number-of-element"></span></li>
                     </ul>
                     <span>Price</span>
-                    <input type="range" id="price" min="0" max="80">
+                    <input type="range" id="price-input" min="0" max="80" value="80">
                     <span>Value: <output id="price-value" ></output>$</span>
-                </div>
+                </form>
                 <div class="products__box">
                 </div>
             </div>
         </div>
+
+        <div class="shopping-card" id="shopping-card">
+            <button class="close">&#10006;</button>
+            <span class="title">Your Bag</span>
+            <div class="shopping-card__item">
+                <img src="/task_2.8/image/main-image.jpg" alt="">
+                <div class="shopping-card__item_info">
+                    <span>Dinning Table</span>
+                    <span>6.99</span>
+                    <button>remove</button>
+                </div>
+                <div class="toggle-arrow">
+                    <button>&#8743;</button>
+                    <span>4</span>
+                    <button>&#8744;</button>
+                </div>
+            </div>
+            <div class="shopping-card__item">
+                <img src="/task_2.8/image/main-image.jpg" alt="">
+                <div class="shopping-card__item_info">
+                    <span>Dinning Table</span>
+                    <span>6.99</span>
+                    <button>remove</button>
+                </div>
+                <div class="toggle-arrow">
+                    <button>&#8743;</button>
+                    <span>4</span>
+                    <button>&#8744;</button>
+                </div>
+            </div>
+            <div class="shopping-card__footer">
+                <button>Checkout</button>
+                <span class="title">Total: $<span id="shopping-card__total">1</span></span>
+            </div>
+        </div>
     </main>
-    </div>
 
     <script src="/task_2.8/script.js"></script>
 </body>

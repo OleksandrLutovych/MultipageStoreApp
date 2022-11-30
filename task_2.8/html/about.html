@@ -25,7 +25,7 @@
                         <div class="logo">
                             <a href="/task_2.8/html/main.html">comfy</a>
                         </div>
-                        <a href="" class="fa fa-shopping-cart"><span class="counter">1</span></a>
+                        <a href="" class="fa fa-shopping-cart" id="basket"><span class="counter">1</span></a>
                     </div>
 
                 </nav>
@@ -49,7 +49,45 @@
                         expedita in tempore porro facere laudantium fugit!</p>
                 </div>
             </div>
+
+            <div class="shopping-card" id="shopping-card">
+                <button class="close">&#10006;</button>
+                <span class="title">Your Bag</span>
+                <div class="shopping-card__item">
+                    <img src="/task_2.8/image/main-image.jpg" alt="">
+                    <div class="shopping-card__item_info">
+                        <span>Dinning Table</span>
+                        <span>6.99</span>
+                        <button>remove</button>
+                    </div>
+                    <div class="toggle-arrow">
+                        <button>&#8743;</button>
+                        <span>4</span>
+                        <button>&#8744;</button>
+                    </div>
+                </div>
+                <div class="shopping-card__item">
+                    <img src="/task_2.8/image/main-image.jpg" alt="">
+                    <div class="shopping-card__item_info">
+                        <span>Dinning Table</span>
+                        <span>6.99</span>
+                        <button>remove</button>
+                    </div>
+                    <div class="toggle-arrow">
+                        <button>&#8743;</button>
+                        <span>4</span>
+                        <button>&#8744;</button>
+                    </div>
+                </div>
+                <div class="shopping-card__footer">
+                    <button>Checkout</button>
+                    <span class="title">Total: $<span id="shopping-card__total">1</span></span>
+                </div>
+            </div>
         </main>
+
+
+        <script src="/task_2.8/script.js"></script>
     </body>
 
 </html>
