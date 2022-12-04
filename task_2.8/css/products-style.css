@@ -115,6 +115,10 @@ header::before {
 .users__bar ul li button:hover {
   text-decoration: underline;
 }
+.users__bar ul li button:disabled:hover {
+  text-decoration: none;
+  cursor: auto;
+}
 .users__bar ul li .number-of-element {
   font-weight: 400;
   opacity: 0.7;

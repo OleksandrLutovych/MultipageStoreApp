@@ -102,6 +102,10 @@ header::before {
         &:hover {
           text-decoration: underline;
         }
+        &:disabled:hover {
+          text-decoration: none;
+          cursor: auto;
+        }
       }
       padding: 5px 0;
       .number-of-element {
