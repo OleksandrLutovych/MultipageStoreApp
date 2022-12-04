@@ -159,6 +159,7 @@ header {
 }
 .shopping-card__item_info {
   display: flex;
+  width: 130px;
   flex-direction: column;
   align-items: flex-start;
 }

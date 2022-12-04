@@ -101,6 +101,7 @@ header::before {
     margin: 20px;
     &_info {
       display: flex;
+      width: 130px;
       flex-direction: column;
       align-items:flex-start;
       button {
