@@ -7,6 +7,10 @@ const searchBar = document.getElementById("search-bar");
 const shoppingCardBtn = document.getElementById("basket");
 const addToCartBtn = document.querySelectorAll(".add-to-cart");
 const companyNameBlock = document.querySelector(".company-name-box");
+const shoppingCard = document.getElementById("shopping-card");
+const shoppingCardWrapper = document.querySelector(
+  ".shopping-card__item-wrapper"
+);
 
 const shopItems = "http://127.0.0.1:5500/products.json";
 
@@ -23,8 +27,9 @@ const renderElements = (item) =>
       <button class="add-to-cart">Add to cart</button>
   </a>`;
 
-const renderElementsInShopingCart = (item) =>
-  `<div class="shopping-card__item">
+const renderElementsInShopingCart = (item) => {
+const itemName = item.name.split(' ').join('')
+  return `<div class="shopping-card__item ${itemName}">
   <img src="${item.image}" alt="">
   <div class="shopping-card__item_info">
       <span>${item.name}</span>
@@ -36,7 +41,7 @@ const renderElementsInShopingCart = (item) =>
       <span>4</span>
       <button>&#8744;</button>
   </div>
-</div>`;
+</div>`}
 
 // ------- Home page
 function mainFeaturedCardsRender() {
@@ -164,30 +169,40 @@ function searchItemByRange() {
   });
 }
 
-// ------- Shopping cart
 function addItemtoShoppingCard() {
-  const shoppingCardWrapper = document.querySelector(
-    ".shopping-card__item-wrapper"
-  );
-
   getItems().then((itemsArr) => {
     const storageArr = itemsArr.filter((item) => {
+      const itemName = item.name.split(' ').join('')
       for (let key in localStorage) {
         if (!localStorage.hasOwnProperty(key)) continue;
-        if (key === item.name) return item;
+        if (key === itemName) return item;
       }
     });
-    shoppingCardWrapper.innerHTML += storageArr
+    shoppingCardWrapper.innerHTML = storageArr
       .map(renderElementsInShopingCart)
       .join("");
   });
 }
+// ------- Shopping cart
 shoppingCardBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const shoppingCard = document.getElementById("shopping-card");
   shoppingCard.classList.toggle("show");
 });
 
+function shoppingCardAction (e) {
+  e.preventDefault()
+  const btn = e.target
+  console.log(btn)
+  if(btn.className === "close") {
+    shoppingCard.classList.toggle("show");
+  }
+  if(btn.tagName === "BUTTON") {
+    const elementName = btn.parentElement.querySelector('span').innerHTML.split(' ').join('')
+    const blockName = document.querySelector(`.${elementName.split(' ').join('')}`)
+    localStorage.removeItem(elementName)
+    blockName.remove()
+  }
+}
 mainFeaturedCardsRender();
 productsAllRender();
 addItemtoShoppingCard();
@@ -199,9 +214,12 @@ productsItemBox.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.className === "add-to-cart") {
     const result = e.target.parentElement;
-    const key = result.querySelector(".product__card_name").innerHTML;
+    const key = result.querySelector(".product__card_name").innerHTML.split(' ').join('');
     const value = result.querySelector(".product__card_price").innerHTML;
     console.log(key, value);
     localStorage.setItem(key, value);
+    addItemtoShoppingCard()
   }
 });
+
+shoppingCard.addEventListener('click', shoppingCardAction)

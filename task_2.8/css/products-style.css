@@ -138,7 +138,7 @@ header::before {
 }
 
 .shopping-card {
-  display: none;
+  display: flex;
   position: fixed;
   width: 300px;
   background-color: #fff;
@@ -170,6 +170,7 @@ header::before {
 }
 .shopping-card__item_info {
   display: flex;
+  width: 130px;
   flex-direction: column;
   align-items: flex-start;
 }
