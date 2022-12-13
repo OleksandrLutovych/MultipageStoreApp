@@ -96,6 +96,8 @@ header::before {
     list-style: none;
     li {
       button {
+        text-align: left; 
+        width: 90%;
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -131,7 +133,7 @@ header::before {
 
 
 .shopping-card {
-  display: none;
+  display: none;  
   position: fixed;
   width: 300px;
   background-color: #fff;
@@ -139,7 +141,6 @@ header::before {
   right: 0;
   bottom: 0;
   flex-direction: column;
-  animation: shoppCard 1s;
   .close {
     background-color: transparent;
     color: rgb(110, 110, 172);
@@ -224,7 +225,15 @@ header::before {
     margin-right: 0px;
   }
 }
-
-.show {
+@keyframes hide {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: -500px;
+  }
+}
+.show { 
   display: flex;
+  animation: shoppCard 1s;
 }

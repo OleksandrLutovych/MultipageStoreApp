@@ -23,7 +23,7 @@
                     <div class="logo">
                         <a href="/task_2.8/html/main.html">comfy</a>
                     </div>
-                    <a href="" class="fa fa-shopping-cart" id="basket"><span class="counter"></span></a>
+                    <a href="" class="fa fa-shopping-cart" id="shopping-card-icon"><span id="number-of-items"></span></a>
                 </div>
 
             </nav>
@@ -39,11 +39,11 @@
                     <input type="search" placeholder="Search..." id="search-bar">
                     <span>Company</span>
                     <ul class="company-name-box">
-                        <li><button>All</button><span class="number-of-element"></span></li>
-                        <li><button>Ikea</button><span class="number-of-element"></span></li>
-                        <li><button>Marcos</button><span class="number-of-element"></span></li>
-                        <li><button>Caressa</button><span class="number-of-element"></span></li>
-                        <li><button>Liddy</button><span class="number-of-element"></span></li>
+                        <li><button>All</button><span data-id="All" class="number-of-element"></span></li>
+                        <li><button>Ikea</button><span data-id="Ikea" class="number-of-element"></span></li>
+                        <li><button>Marcos</button><span data-id="Marcos" class="number-of-element"></span></li>
+                        <li><button>Caressa</button><span data-id="Caressa" class="number-of-element"></span></li>
+                        <li><button>Liddy</button><span data-id="Liddy" class="number-of-element"></span></li>
                     </ul>
                     <span>Price</span>
                     <input type="range" id="price-input" min="0" max="80" value="80">
@@ -58,16 +58,16 @@
             <button class="close">&#10006;</button>
             <span class="title">Your Bag</span>
             <div class="shopping-card__item-wrapper">
-                
+
             </div>
             <div class="shopping-card__footer">
-                <button>Checkout</button>
+                <button id="shoping-card-clear-all">Clear All</button>
                 <span class="title">Total: $<span id="shopping-card__total">1</span></span>
             </div>
         </div>
     </main>
-
-    <script src="/task_2.8/script.js"></script>
+    <script type="module" src="/task_2.8/js/product_component.js"></script>
+    <script type="module" src="/task_2.8/js/products.js"></script>
 </body>
 
 </html>

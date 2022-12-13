@@ -108,6 +108,8 @@ header::before {
   padding: 5px 0;
 }
 .users__bar ul li button {
+  text-align: left;
+  width: 90%;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -146,8 +148,6 @@ header::before {
   right: 0;
   bottom: 0;
   flex-direction: column;
-  -webkit-animation: shoppCard 1s;
-          animation: shoppCard 1s;
 }
 .shopping-card .close {
   background-color: transparent;
@@ -241,6 +241,24 @@ header::before {
     margin-right: 0px;
   }
 }
+@-webkit-keyframes hide {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: -500px;
+  }
+}
+@keyframes hide {
+  from {
+    margin-right: 0;
+  }
+  to {
+    margin-right: -500px;
+  }
+}
 .show {
   display: flex;
+  -webkit-animation: shoppCard 1s;
+          animation: shoppCard 1s;
 }/*# sourceMappingURL=products-style.css.map */
