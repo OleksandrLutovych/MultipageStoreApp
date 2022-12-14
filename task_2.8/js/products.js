@@ -1,11 +1,9 @@
 const productsItemBox = document.querySelector(".products__box");
 const companyNameItemsCounter = document.querySelectorAll(".number-of-element");
-const form = document.querySelector(".users__bar");
 const rangeInput = document.getElementById("price-input");
 const searchBar = document.getElementById("search-bar");
-const addToCartBtn = document.querySelectorAll(".add-to-cart");
 const companyNameBlock = document.querySelector(".company-name-box");
-const shoppingCardIconNumber = document.getElementById('number-of-items')
+const shoppingCardIconNumber = document.getElementById("number-of-items");
 
 import { renderElements } from "./product_component.js";
 const API_SHOP_ITEMS = "http://127.0.0.1:5500/products.json";
@@ -42,52 +40,42 @@ async function setData() {
       addItemToShoppingCard(itemsArr);
     }
   });
-
 }
-
 setData();
 
-// ------- Products page
 function productsAllRender(arr) {
   productsItemBox.innerHTML += arr.map(renderElements).join("");
   countOfElement(arr);
 }
+
 function countOfElement(arr) {
-  const hashmap = arr.reduce(
-    (accum, { type }, _, array) => {
-      if (accum[type] === undefined) return { ...accum, [type]: 0 };
-      else
-        return {
-          ...accum,
-          [type]: array.filter((i) => {
-            if (
-              i.type === type &&
-              i.name
-                .toLowerCase()
-                .startsWith(searchBar.value.trim().toLowerCase()) &&
-              Math.floor(i.price) < rangeInput.value
-            ) {
-              return i;
-            }
-          }).length,
-        };
+  const hashmap = JSON.parse(localStorage.getItem("itemArr")).reduce(
+    (accum, { type }) => {
+      return { ...accum, [type]: 0 };
     },
-    { All: 0}
+    { All: arr.length }
   );
-  hashmap.All = arr.length;
-  console.log(hashmap);
+
+  arr.forEach((item) => {
+    const name = item.name
+      .toLowerCase()
+      .includes(searchBar.value.trim().toLowerCase());
+
+    if (name && Math.floor(item.price) < rangeInput.value) return hashmap[item.type]++;
+  });
   for (let i = 0; i < 5; i++) {
     if (companyNameItemsCounter[i].dataset.id === Object.keys(hashmap)[i]) {
       companyNameItemsCounter[i].innerHTML = Object.values(hashmap)[i];
     }
   }
-
-
   for (let block of companyNameBlock.children) {
-    if (block.children[1].innerHTML < 1) {
-      block.children[0].disabled = true;
+    const btn = block.children[0];
+    const counter = block.children[1];
+
+    if (counter.innerHTML < 1) {
+      btn.disabled = true;
     } else {
-      block.children[0].disabled = false;
+      btn.disabled = false;
     }
   }
 }
@@ -95,13 +83,9 @@ function countOfElement(arr) {
 function searchBySearchBar(arr) {
   searchBar.addEventListener("input", () => {
     const result = arr.filter((item) => {
-      if (
-        item.name
-          .toLowerCase()
-          .startsWith(searchBar.value.trim().toLowerCase()) &&
-        Math.floor(item.price) < rangeInput.value
-      )
-        return item;
+      const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
+
+      if (name && Math.floor(item.price) < rangeInput.value) return item;
     });
     productsItemBox.innerHTML = result.map(renderElements).join("");
     countOfElement(result);
@@ -117,25 +101,16 @@ function sortedByType(arr) {
     if (btn.innerHTML === "All")
       return (productsItemBox.innerHTML = arr
         .map((item) => {
-          if (
-            item.name
-              .toLowerCase()
-              .startsWith(searchBar.value.trim().toLowerCase()) &&
-            Math.floor(item.price) < rangeInput.value
-          )
-            return renderElements(item);
+            const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
+            if (name && Math.floor(item.price) < rangeInput.value) return renderElements(item);
         })
         .join(""));
     productsItemBox.innerHTML = arr
       .map((item) => {
+        const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
+
         if (btn.innerHTML === item.type) {
-          if (
-            item.name
-              .toLowerCase()
-              .startsWith(searchBar.value.trim().toLowerCase()) &&
-            Math.floor(item.price) < rangeInput.value
-          )
-            return renderElements(item);
+          if (name && Math.floor(item.price) < rangeInput.value) return renderElements(item);
         }
       })
       .join("");
@@ -151,12 +126,10 @@ function searchItemByRange(arr) {
     rangeInputValueInfo.innerHTML = rangeInput.value;
     // -- Render element sort using range input
     const result = arr.filter((item) => {
-      if (
-        Math.floor(item.price) < rangeInput.value &&
-        item.name.toLowerCase().startsWith(searchBar.value.trim().toLowerCase())
-      )
-        return item;
-    });
+        const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
+
+        if (name && Math.floor(item.price) < rangeInput.value) return item;
+    }); 
     productsItemBox.innerHTML = result.map(renderElements).join("");
     // -- Counter of element
     countOfElement(result);
@@ -164,28 +137,26 @@ function searchItemByRange(arr) {
 }
 // -- Shoping Card
 function addItemToShoppingCard(arr) {
-    
   const storageArr = arr.filter((item) => {
     const itemName = item.name.split(" ").join("");
     for (let key in localStorage) {
       if (!localStorage.hasOwnProperty(key)) continue;
       if (key === itemName) {
-        const value = localStorage.getItem(key);
         return item;
       }
     }
   });
-  const numberOfElementsInShoppingCard = storageArr.reduce((accum, _, index, array) => {
-    return array.length
-})
-shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard
+  const numberOfElementsInShoppingCard = storageArr.reduce(
+    (accum, _, index, array) => {
+      return array.length;
+    }
+  );
+  shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard;
 
   shoppingCardWrapper.innerHTML = storageArr
     .map((item) => {
-      const countOfElement = localStorage.getItem(
-        item.name.split(" ").join("")
-      );
-      return `<div class="shopping-card__item ${item.name.split(" ").join("")}">
+      const countOfElement = localStorage.getItem(remakeName(item.name));
+      return `<div class="shopping-card__item ${remakeName(item.name)}">
     <img src="${item.image}" alt="">
     <div class="shopping-card__item_info">
         <span>${item.name}</span>
@@ -247,9 +218,12 @@ function shoppingCardButtons(e) {
   }
 }
 
+function remakeName(name) {
+  return name.split(" ").join("");
+}
+
 shoppingCardBtn.addEventListener("click", (e) => {
   e.preventDefault();
   shoppingCard.classList.toggle("show");
 });
 shoppingCard.addEventListener("click", shoppingCardButtons);
-

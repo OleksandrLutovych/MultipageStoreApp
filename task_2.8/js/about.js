@@ -9,10 +9,10 @@ const shoppingCardIconNumber = document.getElementById('number-of-items')
 function addItemToShoppingCard() {
   const storageArr = itemsArr.filter((item) => {
     const itemName = item.name.split(" ").join("");
+
     for (let key in localStorage) {
       if (!localStorage.hasOwnProperty(key)) continue;
       if (key === itemName) {
-        const value = localStorage.getItem(key);
         return item;
       }
     }
@@ -25,9 +25,9 @@ shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard
   shoppingCardWrapper.innerHTML = storageArr
     .map((item) => {
       const countOfElement = localStorage.getItem(
-        item.name.split(" ").join("")
+        remakeName(item.name)
       );
-      return `<div class="shopping-card__item ${item.name.split(" ").join("")}">
+      return `<div class="shopping-card__item ${remakeName(item.name)}">
     <img src="${item.image}" alt="">
     <div class="shopping-card__item_info">
         <span>${item.name}</span>
@@ -46,10 +46,11 @@ shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard
 function shoppingCardButtons(e) {
   e.preventDefault();
   const btn = e.target;
+
   if (btn.className === "close") {
     shoppingCard.classList.toggle("show");
   }
-  if (btn.tagName === "BUTTON") {
+  if (btn.tagName === "BUTTON" && btn.innerHTML === "remove") {
     const elementName = btn.parentElement
       .querySelector("span")
       .innerHTML.split(" ")
@@ -68,6 +69,10 @@ function shoppingCardButtons(e) {
     }
     document.querySelector('.shopping-card__item-wrapper').innerHTML = ''
   }
+}
+
+function remakeName(name) {
+  return name.split(" ").join("");
 }
 
 shoppingCardBtn.addEventListener("click", (e) => {

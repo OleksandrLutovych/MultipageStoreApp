@@ -28,7 +28,6 @@ function addItemToShoppingCard() {
     for (let key in localStorage) {
       if (!localStorage.hasOwnProperty(key)) continue;
       if (key === itemName) {
-        const value = localStorage.getItem(key);
         return item;
       }
     }
@@ -62,10 +61,11 @@ shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard
 function shoppingCardButtons(e) {
   e.preventDefault();
   const btn = e.target;
+
   if (btn.className === "close") {
     shoppingCard.classList.toggle("show");
   }
-  if (btn.tagName === "BUTTON") {
+  if (btn.tagName === "BUTTON" && btn.innerHTML === "remove") {
     const elementName = btn.parentElement
       .querySelector("span")
       .innerHTML.split(" ")
@@ -85,9 +85,13 @@ function shoppingCardButtons(e) {
     document.querySelector('.shopping-card__item-wrapper').innerHTML = ''
   }
 }
+function remakeName(name) {
+  return name.split(" ").join("");
+}
 
 mainFeaturedCardsRender();
 addItemToShoppingCard();
+
 
 shoppingCardBtn.addEventListener("click", (e) => {
   e.preventDefault();
