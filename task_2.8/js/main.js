@@ -57,7 +57,9 @@ async function setData() {
 
   mainFeaturedCardsRender(itemsArr);
 }
+
 setData();
+addItemToShoppingCard()
 
 shoppingCardBtn.addEventListener("click", (e) => {
   e.preventDefault();

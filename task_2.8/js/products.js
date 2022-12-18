@@ -15,13 +15,10 @@ const shoppingCardWrapper = document.querySelector(
 );
 let count = 1;
 
-
-
 function productsAllRender(arr) {
   productsItemBox.innerHTML += arr.map(renderElements).join("");
   countOfElement(arr);
 }
-
 function countOfElement(arr) {
   const hashmap = JSON.parse(localStorage.getItem("itemArr")).reduce(
     (accum, { type }) => {
@@ -62,7 +59,7 @@ function searchBySearchBar(arr) {
       if (name && Math.floor(item.price) < rangeInput.value) return true
       else return false
     });
-    productsItemBox.innerHTML = result.map(renderElements).join("");
+    setInnerHtml(productsItemBox, result.map(renderElements).join(""))
     countOfElement(result);
   });
 }
@@ -94,31 +91,31 @@ function sortedByType(arr) {
 
 function searchItemByRange(arr) {
   const rangeInputValueInfo = document.querySelector("output");
-  rangeInputValueInfo.innerHTML = rangeInput.value;
+  setInnerHtml(rangeInputValueInfo, rangeInput.value)
 
   rangeInput.addEventListener("input", (e) => {
     e.preventDefault();
-    rangeInputValueInfo.innerHTML = rangeInput.value;
-    // -- Render element sort using range input
+    setInnerHtml(rangeInputValueInfo, rangeInput.value)
     const result = arr.filter((item) => {
         const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
 
         if (name && Math.floor(item.price) < rangeInput.value) return true
         else return false;
     }); 
-    productsItemBox.innerHTML = result.map(renderElements).join("");
-    // -- Counter of element
+    setInnerHtml(productsItemBox, result.map(renderElements).join(""))
     countOfElement(result);
   });
 }
 // -- Shoping Card
+
 export function addItemToShoppingCard(arr) {
   const storageArr = arr.filter((item) => {
     if (Object.keys(localStorage).includes(item.name.split(" ").join(""))) {
         return true
     }
   });
-  shoppingCardIconNumber.innerHTML = storageArr.length;
+
+  setInnerHtml(shoppingCardIconNumber, storageArr.length)
 
   shoppingCardWrapper.innerHTML = storageArr
     .map((item) => {
@@ -185,12 +182,14 @@ function shoppingCardButtons(e) {
     }
   }
 }
-
+// -- Helpfull functions
 function remakeName(name) {
   return name.split(" ").join("");
 }
-
-
+function setInnerHtml(element, text) {
+    return element.innerHTML = text
+}
+// -- Call functions
 async function setData() {
     const response = await fetch(API_SHOP_ITEMS);
     const data = await response.json();

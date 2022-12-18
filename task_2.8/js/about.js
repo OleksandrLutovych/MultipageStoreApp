@@ -1,48 +1,9 @@
+import { addItemToShoppingCard } from "./products.js";
+
 const shoppingCardBtn = document.getElementById("shopping-card-icon");
 const shoppingCard = document.getElementById("shopping-card");
-const itemsArr = JSON.parse(localStorage.getItem("itemArr"));
-const shoppingCardWrapper = document.querySelector(
-  ".shopping-card__item-wrapper"
-);
-const shoppingCardIconNumber = document.getElementById('number-of-items')
 
-function addItemToShoppingCard() {
-  const storageArr = itemsArr.filter((item) => {
-    const itemName = item.name.split(" ").join("");
 
-    for (let key in localStorage) {
-      if (!localStorage.hasOwnProperty(key)) continue;
-      if (key === itemName) {
-        return item;
-      }
-    }
-  });
-  const numberOfElementsInShoppingCard = storageArr.reduce((accum, _, index, array) => {
-    return array.length
-})
-shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard
-
-  shoppingCardWrapper.innerHTML = storageArr
-    .map((item) => {
-      const countOfElement = localStorage.getItem(
-        remakeName(item.name)
-      );
-      return `<div class="shopping-card__item ${remakeName(item.name)}">
-    <img src="${item.image}" alt="">
-    <div class="shopping-card__item_info">
-        <span>${item.name}</span>
-        <span>${item.price}</span>
-        <button>remove</button>
-    </div>
-    <div class="toggle-arrow">
-        <button class="increase">&#8743;</button>
-        <span class="counter">${countOfElement}</span>
-        <button class="reduce">&#8744;</button>
-    </div>
-  </div>`;
-    })
-    .join("");
-}
 function shoppingCardButtons(e) {
   e.preventDefault();
   const btn = e.target;
@@ -74,6 +35,7 @@ function shoppingCardButtons(e) {
 function remakeName(name) {
   return name.split(" ").join("");
 }
+addItemToShoppingCard();
 
 shoppingCardBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -81,4 +43,3 @@ shoppingCardBtn.addEventListener("click", (e) => {
 });
 shoppingCard.addEventListener("click", shoppingCardButtons);
 
-addItemToShoppingCard();
