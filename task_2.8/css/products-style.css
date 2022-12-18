@@ -241,22 +241,6 @@ header::before {
     margin-right: 0px;
   }
 }
-@-webkit-keyframes hide {
-  from {
-    margin-right: 0;
-  }
-  to {
-    margin-right: -500px;
-  }
-}
-@keyframes hide {
-  from {
-    margin-right: 0;
-  }
-  to {
-    margin-right: -500px;
-  }
-}
 .show {
   display: flex;
   -webkit-animation: shoppCard 1s;

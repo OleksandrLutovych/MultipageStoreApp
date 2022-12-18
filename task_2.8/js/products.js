@@ -15,33 +15,7 @@ const shoppingCardWrapper = document.querySelector(
 );
 let count = 1;
 
-async function setData() {
-  const response = await fetch(API_SHOP_ITEMS);
-  const data = await response.json();
-  localStorage.setItem("itemArr", JSON.stringify(data));
-  const itemsArr = JSON.parse(localStorage.getItem("itemArr"));
 
-  addItemToShoppingCard(itemsArr);
-  productsAllRender(itemsArr);
-  searchBySearchBar(itemsArr);
-  sortedByType(itemsArr);
-  searchItemByRange(itemsArr);
-  productsItemBox.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (e.target.className === "add-to-cart") {
-      const result = e.target.parentElement;
-      const key = result
-        .querySelector(".product__card_name")
-        .innerHTML.split(" ")
-        .join("");
-      const value = count;
-      console.log(key, value);
-      localStorage.setItem(key, value);
-      addItemToShoppingCard(itemsArr);
-    }
-  });
-}
-setData();
 
 function productsAllRender(arr) {
   productsItemBox.innerHTML += arr.map(renderElements).join("");
@@ -85,7 +59,8 @@ function searchBySearchBar(arr) {
     const result = arr.filter((item) => {
       const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
 
-      if (name && Math.floor(item.price) < rangeInput.value) return item;
+      if (name && Math.floor(item.price) < rangeInput.value) return true
+      else return false
     });
     productsItemBox.innerHTML = result.map(renderElements).join("");
     countOfElement(result);
@@ -128,7 +103,8 @@ function searchItemByRange(arr) {
     const result = arr.filter((item) => {
         const name = item.name.toLowerCase().includes(searchBar.value.trim().toLowerCase());
 
-        if (name && Math.floor(item.price) < rangeInput.value) return item;
+        if (name && Math.floor(item.price) < rangeInput.value) return true
+        else return false;
     }); 
     productsItemBox.innerHTML = result.map(renderElements).join("");
     // -- Counter of element
@@ -136,22 +112,13 @@ function searchItemByRange(arr) {
   });
 }
 // -- Shoping Card
-function addItemToShoppingCard(arr) {
+export function addItemToShoppingCard(arr) {
   const storageArr = arr.filter((item) => {
-    const itemName = item.name.split(" ").join("");
-    for (let key in localStorage) {
-      if (!localStorage.hasOwnProperty(key)) continue;
-      if (key === itemName) {
-        return item;
-      }
+    if (Object.keys(localStorage).includes(item.name.split(" ").join(""))) {
+        return true
     }
   });
-  const numberOfElementsInShoppingCard = storageArr.reduce(
-    (accum, _, index, array) => {
-      return array.length;
-    }
-  );
-  shoppingCardIconNumber.innerHTML = numberOfElementsInShoppingCard;
+  shoppingCardIconNumber.innerHTML = storageArr.length;
 
   shoppingCardWrapper.innerHTML = storageArr
     .map((item) => {
@@ -188,6 +155,7 @@ function shoppingCardButtons(e) {
     );
     localStorage.removeItem(elementName);
     blockName.remove();
+    shoppingCardIconNumber.innerHTML = +shoppingCardIconNumber.innerHTML - 1
   }
   if (btn.id === "shoping-card-clear-all") {
     for (let key in localStorage) {
@@ -222,6 +190,33 @@ function remakeName(name) {
   return name.split(" ").join("");
 }
 
+
+async function setData() {
+    const response = await fetch(API_SHOP_ITEMS);
+    const data = await response.json();
+    localStorage.setItem("itemArr", JSON.stringify(data));
+    const itemsArr = JSON.parse(localStorage.getItem("itemArr"));
+  
+    addItemToShoppingCard(itemsArr);
+    productsAllRender(itemsArr);
+    searchBySearchBar(itemsArr);
+    sortedByType(itemsArr);
+    searchItemByRange(itemsArr);
+    productsItemBox.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (e.target.className === "add-to-cart") {
+        const result = e.target.parentElement;
+        const key = result
+          .querySelector(".product__card_name")
+          .innerHTML.split(" ")
+          .join("");
+        console.log(key, count);
+        localStorage.setItem(key, count);
+        addItemToShoppingCard(itemsArr);
+      }
+    });
+  }
+setData();
 shoppingCardBtn.addEventListener("click", (e) => {
   e.preventDefault();
   shoppingCard.classList.toggle("show");

@@ -225,14 +225,6 @@ header::before {
     margin-right: 0px;
   }
 }
-@keyframes hide {
-  from {
-    margin-right: 0;
-  }
-  to {
-    margin-right: -500px;
-  }
-}
 .show { 
   display: flex;
   animation: shoppCard 1s;

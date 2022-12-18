@@ -135,8 +135,6 @@ header {
   right: 0;
   bottom: 0;
   flex-direction: column;
-  -webkit-animation: shoppCard 1s;
-          animation: shoppCard 1s;
 }
 .shopping-card .close {
   background-color: transparent;
@@ -232,4 +230,6 @@ header {
 }
 .show {
   display: flex;
+  -webkit-animation: shoppCard 1s;
+          animation: shoppCard 1s;
 }/*# sourceMappingURL=main-style.css.map */

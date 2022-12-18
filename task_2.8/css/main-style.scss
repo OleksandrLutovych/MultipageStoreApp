@@ -132,7 +132,6 @@ header {
   right: 0;
   bottom: 0;
   flex-direction: column;
-  animation: shoppCard 1s;
   .close {
     background-color: transparent;
     color: rgb(110, 110, 172);
@@ -220,5 +219,6 @@ header {
 
 .show {
   display: flex;
+  animation: shoppCard 1s;
 }
 
