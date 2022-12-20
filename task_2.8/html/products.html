@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/task_2.8/css/products-style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav__wrapper">
+                    <ul class="menu">
+                        <li><a href="/task_2.8/html/main.html">Home</a></li>
+                        <li><a href="/task_2.8/html/products.html">Products</a></li>
+                        <li><a href="/task_2.8/html/about.html">About</a></li>
+                    </ul>
+                    <div class="logo">
+                        <a href="/task_2.8/html/main.html">comfy</a>
+                    </div>
+                    <a href="" class="fa fa-shopping-cart" id="shopping-card-icon"><span id="number-of-items"></span></a>
+                </div>
+
+            </nav>
+            <div class="header__content">
+                <span>Home / Products</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="shop__wrapper">
+                <form class="users__bar" name="products-form">
+                    <input type="search" placeholder="Search..." id="search-bar">
+                    <span>Company</span>
+                    <ul class="company-name-box">
+                        <li><button>All</button><span data-id="All" class="number-of-element"></span></li>
+                        <li><button>Ikea</button><span data-id="Ikea" class="number-of-element"></span></li>
+                        <li><button>Marcos</button><span data-id="Marcos" class="number-of-element"></span></li>
+                        <li><button>Caressa</button><span data-id="Caressa" class="number-of-element"></span></li>
+                        <li><button>Liddy</button><span data-id="Liddy" class="number-of-element"></span></li>
+                    </ul>
+                    <span>Price</span>
+                    <input type="range" id="price-input" min="0" max="80" value="80">
+                    <span>Value: <output id="price-value"></output>$</span>
+                </form>
+                <div class="products__box">
+                </div>
+            </div>
+        </div>
+
+        <div class="shopping-card" id="shopping-card">
+            <button class="close">&#10006;</button>
+            <span class="title">Your Bag</span>
+            <div class="shopping-card__item-wrapper">
+
+            </div>
+            <div class="shopping-card__footer">
+                <button id="shoping-card-clear-all">Clear All</button>
+                <span class="title">Total: $<span id="shopping-card__total">1</span></span>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="/task_2.8/js/product_component.js"></script>
+    <script type="module" src="/task_2.8/js/products.js"></script>
+</body>
+
+</html>
