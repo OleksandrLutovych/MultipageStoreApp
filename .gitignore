@@ -1,3 +1,7 @@
-.gitignore
 node_modules
-task_2.7/style.css.map
+task_2.8/css/main-style.css.map
+task_2.8/css/products-style.css.map
+task_2.8/css/about-style.css.map
+package-lock.json
+package.json
+
